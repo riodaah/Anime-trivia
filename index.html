@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="nickname-container">
+            <h1>Welcome to Trivia!</h1>
+            <input type="text" id="nickname-input" placeholder="Enter your nickname">
+            <button id="start-button">Start Game</button>
+        </div>
+        <div id="game-container" style="display: none;">
+            <div id="timer">15</div>
+            <div id="question-container">
+                <h2 id="question"></h2>
+                <div id="answers-container">
+                    <button class="answer-button"></button>
+                    <button class="answer-button"></button>
+                    <button class="answer-button"></button>
+                    <button class="answer-button"></button>
+                </div>
+            </div>
+            <div id="feedback"></div>
+        </div>
+    </div>
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

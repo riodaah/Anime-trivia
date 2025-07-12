@@ -1,0 +1,1992 @@
+[
+  {
+    "question": "¿Quién es el protagonista principal de Naruto?",
+    "options": [
+      "Sasuke",
+      "Kakashi",
+      "Sakura",
+      "Naruto"
+    ],
+    "correctAnswer": "Naruto"
+  },
+  {
+    "question": "¿Cuál es el nombre del Shinigami que sigue a Light Yagami en Death Note?",
+    "options": [
+      "Rem",
+      "L",
+      "Misa",
+      "Ryuk"
+    ],
+    "correctAnswer": "Ryuk"
+  },
+  {
+    "question": "¿En qué anime aparece el personaje Edward Elric?",
+    "options": [
+      "Bleach",
+      "Attack on Titan",
+      "One Piece",
+      "Fullmetal Alchemist"
+    ],
+    "correctAnswer": "Fullmetal Alchemist"
+  },
+  {
+    "question": "¿Cuál es el objetivo de Luffy en One Piece?",
+    "options": [
+      "Vengar a su familia",
+      "Conquistar el mundo",
+      "Encontrar a su hermano",
+      "Ser el Rey de los Piratas"
+    ],
+    "correctAnswer": "Ser el Rey de los Piratas"
+  },
+  {
+    "question": "¿Qué tipo de demonio es Nezuko en Kimetsu no Yaiba?",
+    "options": [
+      "Un demonio pacífico",
+      "Un demonio superior",
+      "Un demonio ancestral",
+      "Un demonio convertido"
+    ],
+    "correctAnswer": "Un demonio convertido"
+  },
+  {
+    "question": "¿Cuál es el verdadero nombre de Kira en Death Note?",
+    "options": [
+      "Mello",
+      "L Lawliet",
+      "Near",
+      "Light Yagami"
+    ],
+    "correctAnswer": "Light Yagami"
+  },
+  {
+    "question": "¿Qué habilidad especial tiene Goku en Dragon Ball?",
+    "options": [
+      "Bankai",
+      "Rasengan",
+      "Susanoo",
+      "Kamehameha"
+    ],
+    "correctAnswer": "Kamehameha"
+  },
+  {
+    "question": "¿Qué representa el colosal titán en Attack on Titan?",
+    "options": [
+      "Libertad",
+      "Fuerza bruta",
+      "Venganza",
+      "Destrucción"
+    ],
+    "correctAnswer": "Destrucción"
+  },
+  {
+    "question": "¿Quién es el padre de Ichigo en Bleach?",
+    "options": [
+      "Aizen",
+      "Yamamoto",
+      "Urahara",
+      "Isshin Kurosaki"
+    ],
+    "correctAnswer": "Isshin Kurosaki"
+  },
+  {
+    "question": "¿Qué animal acompaña a Gon en Hunter x Hunter?",
+    "options": [
+      "Oso",
+      "Zorro",
+      "Perro",
+      "Ninguno"
+    ],
+    "correctAnswer": "Ninguno"
+  },
+  {
+    "question": "¿Qué aldea ninja es conocida por la hoja?",
+    "options": [
+      "Suna",
+      "Kiri",
+      "Kumo",
+      "Konoha"
+    ],
+    "correctAnswer": "Konoha"
+  },
+  {
+    "question": "¿Cuál es la carta más poderosa de Yugi en Yu-Gi-Oh?",
+    "options": [
+      "Mago Oscuro",
+      "Slifer el Dragón del Cielo",
+      "Dragón Blanco de Ojos Azules",
+      "Exodia"
+    ],
+    "correctAnswer": "Exodia"
+  },
+  {
+    "question": "¿Cómo se llama el espadachín de One Piece?",
+    "options": [
+      "Sanji",
+      "Usopp",
+      "Brook",
+      "Zoro"
+    ],
+    "correctAnswer": "Zoro"
+  },
+  {
+    "question": "¿Qué es un 'ghoul' en Tokyo Ghoul?",
+    "options": [
+      "Un dios",
+      "Un robot",
+      "Un cazador de monstruos",
+      "Un ser que se alimenta de humanos"
+    ],
+    "correctAnswer": "Un ser que se alimenta de humanos"
+  },
+  {
+    "question": "¿Quién es el maestro de Saitama en One Punch Man?",
+    "options": [
+      "Genos",
+      "Bang",
+      "Mumen Rider",
+      "No tiene"
+    ],
+    "correctAnswer": "No tiene"
+  },
+  {
+    "question": "¿Qué poder tiene Lelouch en Code Geass?",
+    "options": [
+      "Control del tiempo",
+      "Manipulación de fuego",
+      "Súper fuerza",
+      "Geass para controlar mentes"
+    ],
+    "correctAnswer": "Geass para controlar mentes"
+  },
+  {
+    "question": "¿Quién es el autor de Dragon Ball?",
+    "options": [
+      "Eiichiro Oda",
+      "Masashi Kishimoto",
+      "Tite Kubo",
+      "Akira Toriyama"
+    ],
+    "correctAnswer": "Akira Toriyama"
+  },
+  {
+    "question": "¿Cómo se llama el protagonista de Demon Slayer?",
+    "options": [
+      "Zenitsu",
+      "Inosuke",
+      "Rengoku",
+      "Tanjiro"
+    ],
+    "correctAnswer": "Tanjiro"
+  },
+  {
+    "question": "¿Qué instrumento toca Kaori en Your Lie in April?",
+    "options": [
+      "Piano",
+      "Guitarra",
+      "Flauta",
+      "Violín"
+    ],
+    "correctAnswer": "Violín"
+  },
+  {
+    "question": "¿Qué significa \"Bleach\"?",
+    "options": [
+      "Espada",
+      "Agente limpiador",
+      "Shinigami",
+      "Vacío"
+    ],
+    "correctAnswer": "Agente limpiador"
+  },
+  {
+    "question": "¿Cuál es el apellido de Light en Death Note?",
+    "options": [
+      "Yagami",
+      "Amane",
+      "Lawliet",
+      "Raito"
+    ],
+    "correctAnswer": "Yagami"
+  },
+  {
+    "question": "¿Qué tipo de criatura es Kurama en Naruto?",
+    "options": [
+      "Zorro",
+      "Tigre",
+      "Dragón",
+      "Lobo"
+    ],
+    "correctAnswer": "Zorro"
+  },
+  {
+    "question": "¿Quién es el capitán de la tripulación del Sombrero de Paja?",
+    "options": [
+      "Zoro",
+      "Sanji",
+      "Luffy",
+      "Nami"
+    ],
+    "correctAnswer": "Luffy"
+  },
+  {
+    "question": "¿Cuál es el símbolo de los Uchiha?",
+    "options": [
+      "Estrella",
+      "Fuego",
+      "Abanico",
+      "Llama"
+    ],
+    "correctAnswer": "Abanico"
+  },
+  {
+    "question": "¿Qué técnica utiliza Kakashi con su ojo Sharingan?",
+    "options": [
+      "Amaterasu",
+      "Kamui",
+      "Susanoo",
+      "Tsukuyomi"
+    ],
+    "correctAnswer": "Kamui"
+  },
+  {
+    "question": "¿Cómo se llama el banco de espíritus en Bleach?",
+    "options": [
+      "Gotei 13",
+      "Hueco Mundo",
+      "Seireitei",
+      "Rukongai"
+    ],
+    "correctAnswer": "Seireitei"
+  },
+  {
+    "question": "¿Quién es el hermano mayor de Tanjiro?",
+    "options": [
+      "No tiene",
+      "Giyu",
+      "Inosuke",
+      "Es hijo único"
+    ],
+    "correctAnswer": "No tiene"
+  },
+  {
+    "question": "¿Cuál es el nombre del anime donde los personajes usan titanes?",
+    "options": [
+      "Tokyo Ghoul",
+      "Fullmetal Alchemist",
+      "Attack on Titan",
+      "Bleach"
+    ],
+    "correctAnswer": "Attack on Titan"
+  },
+  {
+    "question": "¿Qué fruta comió Luffy?",
+    "options": [
+      "Fruta Gomu Gomu",
+      "Fruta Mera Mera",
+      "Fruta Hana Hana",
+      "Fruta Yami Yami"
+    ],
+    "correctAnswer": "Fruta Gomu Gomu"
+  },
+  {
+    "question": "¿Qué clase de Pokémon es Pikachu?",
+    "options": [
+      "Agua",
+      "Fuego",
+      "Eléctrico",
+      "Planta"
+    ],
+    "correctAnswer": "Eléctrico"
+  },
+  {
+    "question": "¿Cómo se llama la organización enemiga en Naruto?",
+    "options": [
+      "Akatsuki",
+      "Espada",
+      "Phantom Troupe",
+      "Team Rocket"
+    ],
+    "correctAnswer": "Akatsuki"
+  },
+  {
+    "question": "¿Qué anime tiene a un asesino con una libreta?",
+    "options": [
+      "Naruto",
+      "Bleach",
+      "Death Note",
+      "One Piece"
+    ],
+    "correctAnswer": "Death Note"
+  },
+  {
+    "question": "¿Cómo se llama el espíritu de hielo de Rukia?",
+    "options": [
+      "Senbonzakura",
+      "Hyōrinmaru",
+      "Sode no Shirayuki",
+      "Zangetsu"
+    ],
+    "correctAnswer": "Sode no Shirayuki"
+  },
+  {
+    "question": "¿Qué clase de alquimia practica Edward Elric?",
+    "options": [
+      "De fuego",
+      "De hielo",
+      "De sangre",
+      "Alquimia de transmutación"
+    ],
+    "correctAnswer": "Alquimia de transmutación"
+  },
+  {
+    "question": "¿Quién derrota a Cell en Dragon Ball Z?",
+    "options": [
+      "Goku",
+      "Vegeta",
+      "Gohan",
+      "Trunks"
+    ],
+    "correctAnswer": "Gohan"
+  },
+  {
+    "question": "¿Qué shinigami es rival de Ryuk?",
+    "options": [
+      "Rem",
+      "Sidoh",
+      "Armonia",
+      "Gelus"
+    ],
+    "correctAnswer": "Rem"
+  },
+  {
+    "question": "¿Qué tipo de demonio es Muzan Kibutsuji?",
+    "options": [
+      "Luna superior",
+      "Demonio original",
+      "Demonio medio",
+      "Hashira"
+    ],
+    "correctAnswer": "Demonio original"
+  },
+  {
+    "question": "¿Cómo se llama el primer maestro de Gon?",
+    "options": [
+      "Hisoka",
+      "Netero",
+      "Kite",
+      "Wing"
+    ],
+    "correctAnswer": "Kite"
+  },
+  {
+    "question": "¿Cuál es el rango más alto de los cazadores de demonios?",
+    "options": [
+      "Pilar",
+      "Capitán",
+      "Teniente",
+      "Hashira"
+    ],
+    "correctAnswer": "Hashira"
+  },
+  {
+    "question": "¿Qué ojo especial posee Sasuke?",
+    "options": [
+      "Byakugan",
+      "Rinnegan",
+      "Sharingan",
+      "Jōgan"
+    ],
+    "correctAnswer": "Sharingan"
+  },
+  {
+    "question": "¿Quién escribió el manga One Piece?",
+    "options": [
+      "Akira Toriyama",
+      "Tite Kubo",
+      "Masashi Kishimoto",
+      "Eiichiro Oda"
+    ],
+    "correctAnswer": "Eiichiro Oda"
+  },
+  {
+    "question": "¿Qué animal es Happy en Fairy Tail?",
+    "options": [
+      "Perro",
+      "Gato",
+      "Dragón",
+      "Conejo"
+    ],
+    "correctAnswer": "Gato"
+  },
+  {
+    "question": "¿Qué técnica usa Goku para teletransportarse?",
+    "options": [
+      "Kaioken",
+      "Shunkan Ido",
+      "Kamehameha",
+      "Genki Dama"
+    ],
+    "correctAnswer": "Shunkan Ido"
+  },
+  {
+    "question": "¿Cómo se llama el robot protagonista de Evangelion?",
+    "options": [
+      "Eva-00",
+      "Eva-01",
+      "Eva-02",
+      "Eva-03"
+    ],
+    "correctAnswer": "Eva-01"
+  },
+  {
+    "question": "¿Qué es una pokebola?",
+    "options": [
+      "Un arma",
+      "Una nave",
+      "Un contenedor de Pokémon",
+      "Un escudo"
+    ],
+    "correctAnswer": "Un contenedor de Pokémon"
+  },
+  {
+    "question": "¿Qué tipo de cazador es Killua?",
+    "options": [
+      "Asesino",
+      "Bestias",
+      "Conjuros",
+      "Electricidad"
+    ],
+    "correctAnswer": "Asesino"
+  },
+  {
+    "question": "¿Cómo se llama la espada de Ichigo?",
+    "options": [
+      "Zanpakuto",
+      "Bankai",
+      "Zangetsu",
+      "Senbonzakura"
+    ],
+    "correctAnswer": "Zangetsu"
+  },
+  {
+    "question": "¿Qué habilidad tiene Todoroki en My Hero Academia?",
+    "options": [
+      "Aire",
+      "Fuego y Hielo",
+      "Electricidad",
+      "Luz"
+    ],
+    "correctAnswer": "Fuego y Hielo"
+  },
+  {
+    "question": "¿Qué animal representa al clan Inuzuka?",
+    "options": [
+      "Gatos",
+      "Lobos",
+      "Perros",
+      "Serpientes"
+    ],
+    "correctAnswer": "Perros"
+  },
+  {
+    "question": "¿Cuál es el nombre real de All Might?",
+    "options": [
+      "Shota Aizawa",
+      "Toshinori Yagi",
+      "Endeavor",
+      "Tenya Iida"
+    ],
+    "correctAnswer": "Toshinori Yagi"
+  },
+  {
+    "question": "¿Qué es un Quincy en Bleach?",
+    "options": [
+      "Un shinigami",
+      "Un humano espiritual",
+      "Un arrancar",
+      "Un hollow"
+    ],
+    "correctAnswer": "Un humano espiritual"
+  },
+  {
+    "question": "¿Qué clase de anime es Clannad?",
+    "options": [
+      "Terror",
+      "Acción",
+      "Romance",
+      "Ciencia ficción"
+    ],
+    "correctAnswer": "Romance"
+  },
+  {
+    "question": "¿Quién es el rival principal de Ash en la Liga Pokémon original?",
+    "options": [
+      "Gary Oak",
+      "Brock",
+      "Misty",
+      "James"
+    ],
+    "correctAnswer": "Gary Oak"
+  },
+  {
+    "question": "¿Qué número lleva el capitán Hitsugaya?",
+    "options": [
+      "10",
+      "3",
+      "1",
+      "5"
+    ],
+    "correctAnswer": "10"
+  },
+  {
+    "question": "¿Cómo se llama la transformación dorada de Goku?",
+    "options": [
+      "Super Saiyan",
+      "Ultra Instinct",
+      "Kaioken",
+      "Fusion"
+    ],
+    "correctAnswer": "Super Saiyan"
+  },
+  {
+    "question": "¿Qué es un \"stand\" en JoJo’s Bizarre Adventure?",
+    "options": [
+      "Una espada",
+      "Una armadura",
+      "Un poder espiritual",
+      "Un robot"
+    ],
+    "correctAnswer": "Un poder espiritual"
+  },
+  {
+    "question": "¿Cuál es el verdadero nombre de Sailor Moon?",
+    "options": [
+      "Ami Mizuno",
+      "Rei Hino",
+      "Usagi Tsukino",
+      "Makoto Kino"
+    ],
+    "correctAnswer": "Usagi Tsukino"
+  },
+  {
+    "question": "¿Qué comida ama Naruto?",
+    "options": [
+      "Curry",
+      "Sushi",
+      "Ramen",
+      "Tempura"
+    ],
+    "correctAnswer": "Ramen"
+  },
+  {
+    "question": "¿Cuál es el tipo de energía en Hunter x Hunter?",
+    "options": [
+      "Chakra",
+      "Nen",
+      "Ki",
+      "Reiatsu"
+    ],
+    "correctAnswer": "Nen"
+  },
+  {
+    "question": "¿Quién es el hermano de Itachi?",
+    "options": [
+      "Kakashi",
+      "Madara",
+      "Naruto",
+      "Sasuke"
+    ],
+    "correctAnswer": "Sasuke"
+  },
+  {
+    "question": "¿Qué es el Bancoai de Renji Abarai?",
+    "options": [
+      "Zabimaru",
+      "Zangetsu",
+      "Senbonzakura",
+      "Hyōrinmaru"
+    ],
+    "correctAnswer": "Zabimaru"
+  },
+  {
+    "question": "¿Qué poder tiene Deku en My Hero Academia?",
+    "options": [
+      "Explosión",
+      "Gravedad cero",
+      "One For All",
+      "Hielo"
+    ],
+    "correctAnswer": "One For All"
+  },
+  {
+    "question": "¿Qué es un alchemist en Fullmetal Alchemist?",
+    "options": [
+      "Un mago",
+      "Un soldado",
+      "Un científico con poderes",
+      "Un humano sin alma"
+    ],
+    "correctAnswer": "Un científico con poderes"
+  },
+  {
+    "question": "¿Qué clase de Pokémon es Charizard?",
+    "options": [
+      "Fuego/Volador",
+      "Agua",
+      "Eléctrico",
+      "Tierra"
+    ],
+    "correctAnswer": "Fuego/Volador"
+  },
+  {
+    "question": "¿Qué hace la Death Note?",
+    "options": [
+      "Controla sueños",
+      "Predice el futuro",
+      "Mata personas",
+      "Transporta dimensiones"
+    ],
+    "correctAnswer": "Mata personas"
+  },
+  {
+    "question": "¿Qué tipo de anime es Attack on Titan?",
+    "options": [
+      "Comedia",
+      "Shojo",
+      "Seinen",
+      "Mecha"
+    ],
+    "correctAnswer": "Seinen"
+  },
+  {
+    "question": "¿Qué busca el protagonista en Sword Art Online?",
+    "options": [
+      "Escapar del juego",
+      "Conquistar reinos",
+      "Salvar el mundo",
+      "Derrotar a un demonio"
+    ],
+    "correctAnswer": "Escapar del juego"
+  },
+  {
+    "question": "¿Qué habilidad tiene Shinra en Fire Force?",
+    "options": [
+      "Fuego en los pies",
+      "Control del viento",
+      "Invisibilidad",
+      "Absorber fuego"
+    ],
+    "correctAnswer": "Fuego en los pies"
+  },
+  {
+    "question": "¿Qué es un Hashira?",
+    "options": [
+      "Un demonio",
+      "Un espada legendaria",
+      "Un cazador élite",
+      "Un titán"
+    ],
+    "correctAnswer": "Un cazador élite"
+  },
+  {
+    "question": "¿Quién es Vegeta?",
+    "options": [
+      "Un Namekiano",
+      "Un Saiyajin",
+      "Un androide",
+      "Un terrícola"
+    ],
+    "correctAnswer": "Un Saiyajin"
+  },
+  {
+    "question": "¿Qué clase de anime es Neon Genesis Evangelion?",
+    "options": [
+      "Mecha",
+      "Romance",
+      "Terror",
+      "Deportivo"
+    ],
+    "correctAnswer": "Mecha"
+  },
+  {
+    "question": "¿Quién es Gon en Hunter x Hunter?",
+    "options": [
+      "Un alquimista",
+      "Un shinigami",
+      "Un cazador",
+      "Un ninja"
+    ],
+    "correctAnswer": "Un cazador"
+  },
+  {
+    "question": "¿Qué fruta comió Ace en One Piece?",
+    "options": [
+      "Fruta Gomu Gomu",
+      "Fruta Mera Mera",
+      "Fruta Hana Hana",
+      "Fruta Suna Suna"
+    ],
+    "correctAnswer": "Fruta Mera Mera"
+  },
+  {
+    "question": "¿Qué pokémon acompaña a Misty?",
+    "options": [
+      "Bulbasaur",
+      "Psyduck",
+      "Charmander",
+      "Jigglypuff"
+    ],
+    "correctAnswer": "Psyduck"
+  },
+  {
+    "question": "¿Qué país inspiró el mundo de Attack on Titan?",
+    "options": [
+      "Francia",
+      "Japón",
+      "Alemania",
+      "España"
+    ],
+    "correctAnswer": "Alemania"
+  },
+  {
+    "question": "¿Qué color es el pelo de Inuyasha?",
+    "options": [
+      "Negro",
+      "Rubio",
+      "Rojo",
+      "Blanco"
+    ],
+    "correctAnswer": "Blanco"
+  },
+  {
+    "question": "¿Cuál es el nombre del dios gato en Dragon Ball Super?",
+    "options": [
+      "Whis",
+      "Shenron",
+      "Bills",
+      "Kibito"
+    ],
+    "correctAnswer": "Bills"
+  },
+  {
+    "question": "¿Cómo se llama la ciudad donde vive Ash?",
+    "options": [
+      "Ciudad Verde",
+      "Pueblo Paleta",
+      "Ciudad Celeste",
+      "Ciudad Carmín"
+    ],
+    "correctAnswer": "Pueblo Paleta"
+  },
+  {
+    "question": "¿Qué poder tiene Kurapika?",
+    "options": [
+      "Electricidad",
+      "Fuego",
+      "Control de cadenas",
+      "Manipulación del agua"
+    ],
+    "correctAnswer": "Control de cadenas"
+  },
+  {
+    "question": "¿Quién es el creador de Tokyo Ghoul?",
+    "options": [
+      "Tite Kubo",
+      "Sui Ishida",
+      "Akira Toriyama",
+      "Masashi Kishimoto"
+    ],
+    "correctAnswer": "Sui Ishida"
+  },
+  {
+    "question": "¿Qué clase de demonio es Sukuna en Jujutsu Kaisen?",
+    "options": [
+      "Espíritu maldito",
+      "Dios antiguo",
+      "Chamán",
+      "Humano maldito"
+    ],
+    "correctAnswer": "Espíritu maldito"
+  },
+  {
+    "question": "¿Quién es el mentor de Deku?",
+    "options": [
+      "Endeavor",
+      "All Might",
+      "Aizawa",
+      "Bakugo"
+    ],
+    "correctAnswer": "All Might"
+  },
+  {
+    "question": "¿Qué instrumento toca Kousei en Your Lie in April?",
+    "options": [
+      "Violín",
+      "Piano",
+      "Trompeta",
+      "Flauta"
+    ],
+    "correctAnswer": "Piano"
+  },
+  {
+    "question": "¿Qué es el Geass de Lelouch?",
+    "options": [
+      "Control mental",
+      "Fuerza extrema",
+      "Visión del futuro",
+      "Curación instantánea"
+    ],
+    "correctAnswer": "Control mental"
+  },
+  {
+    "question": "¿Cuál es el arma de Guts en Berserk?",
+    "options": [
+      "Lanza",
+      "Katana",
+      "Espada gigante",
+      "Arco"
+    ],
+    "correctAnswer": "Espada gigante"
+  },
+  {
+    "question": "¿Qué es una homúnculo en Fullmetal Alchemist?",
+    "options": [
+      "Un demonio",
+      "Un robot",
+      "Una creación artificial",
+      "Un espíritu"
+    ],
+    "correctAnswer": "Una creación artificial"
+  },
+  {
+    "question": "¿Qué fruta comió Law en One Piece?",
+    "options": [
+      "Fruta Ope Ope",
+      "Fruta Gomu Gomu",
+      "Fruta Suna Suna",
+      "Fruta Doku Doku"
+    ],
+    "correctAnswer": "Fruta Ope Ope"
+  },
+  {
+    "question": "¿Cómo se llama el padre de Gohan?",
+    "options": [
+      "Piccolo",
+      "Vegeta",
+      "Raditz",
+      "Goku"
+    ],
+    "correctAnswer": "Goku"
+  },
+  {
+    "question": "¿Qué arma usa Mikasa en Attack on Titan?",
+    "options": [
+      "Lanza",
+      "Cañón",
+      "Espadas",
+      "Arco"
+    ],
+    "correctAnswer": "Espadas"
+  },
+  {
+    "question": "¿Quién creó Hunter x Hunter?",
+    "options": [
+      "Tite Kubo",
+      "Yoshihiro Togashi",
+      "Eiichiro Oda",
+      "Akira Toriyama"
+    ],
+    "correctAnswer": "Yoshihiro Togashi"
+  },
+  {
+    "question": "¿Qué hace el Sharingan?",
+    "options": [
+      "Volar",
+      "Leer movimientos",
+      "Sanar",
+      "Disparar rayos"
+    ],
+    "correctAnswer": "Leer movimientos"
+  },
+  {
+    "question": "¿Qué clase de shinigami es Ichigo?",
+    "options": [
+      "Capitán",
+      "Teniente",
+      "Shinigami sustituto",
+      "Arrancar"
+    ],
+    "correctAnswer": "Shinigami sustituto"
+  },
+  {
+    "question": "¿Qué habilidad tiene Killua?",
+    "options": [
+      "Control de hielo",
+      "Electricidad",
+      "Fuerza extrema",
+      "Control del agua"
+    ],
+    "correctAnswer": "Electricidad"
+  },
+  {
+    "question": "¿Qué rango tiene Levi en Attack on Titan?",
+    "options": [
+      "Comandante",
+      "Capitán",
+      "General",
+      "Sargento"
+    ],
+    "correctAnswer": "Capitán"
+  },
+  {
+    "question": "¿Qué es el Nen?",
+    "options": [
+      "Un poder espiritual",
+      "Una técnica ninja",
+      "Un arma",
+      "Un objeto"
+    ],
+    "correctAnswer": "Un poder espiritual"
+  },
+  {
+    "question": "¿Qué fruta comió Doflamingo?",
+    "options": [
+      "Fruta Ito Ito",
+      "Fruta Gomu Gomu",
+      "Fruta Mera Mera",
+      "Fruta Bari Bari"
+    ],
+    "correctAnswer": "Fruta Ito Ito"
+  },
+  {
+    "question": "¿Qué poder tiene Megumi en Jujutsu Kaisen?",
+    "options": [
+      "Sombras",
+      "Fuego",
+      "Hielo",
+      "Viento"
+    ],
+    "correctAnswer": "Sombras"
+  },
+  {
+    "question": "¿Quién es el líder de Akatsuki?",
+    "options": [
+      "Itachi",
+      "Nagato",
+      "Obito",
+      "Madara"
+    ],
+    "correctAnswer": "Nagato"
+  },
+  {
+    "question": "¿Qué color es el pelo de Natsu en Fairy Tail?",
+    "options": [
+      "Negro",
+      "Rojo",
+      "Rosa",
+      "Rubio"
+    ],
+    "correctAnswer": "Rosa"
+  },
+  {
+    "question": "¿Quién fue el primer Hokage?",
+    "options": [
+      "Tobirama",
+      "Hiruzen",
+      "Hashirama",
+      "Minato"
+    ],
+    "correctAnswer": "Hashirama"
+  },
+  {
+    "question": "¿Quién es el protagonista principal de Naruto?",
+    "options": [
+      "Sasuke",
+      "Kakashi",
+      "Sakura",
+      "Naruto"
+    ],
+    "correctAnswer": "Naruto"
+  },
+  {
+    "question": "¿Cuál es el nombre del Shinigami que sigue a Light Yagami en Death Note?",
+    "options": [
+      "Rem",
+      "L",
+      "Misa",
+      "Ryuk"
+    ],
+    "correctAnswer": "Ryuk"
+  },
+  {
+    "question": "¿En qué anime aparece el personaje Edward Elric?",
+    "options": [
+      "Bleach",
+      "Attack on Titan",
+      "One Piece",
+      "Fullmetal Alchemist"
+    ],
+    "correctAnswer": "Fullmetal Alchemist"
+  },
+  {
+    "question": "¿Cuál es el objetivo de Luffy en One Piece?",
+    "options": [
+      "Vengar a su familia",
+      "Conquistar el mundo",
+      "Encontrar a su hermano",
+      "Ser el Rey de los Piratas"
+    ],
+    "correctAnswer": "Ser el Rey de los Piratas"
+  },
+  {
+    "question": "¿Qué tipo de demonio es Nezuko en Kimetsu no Yaiba?",
+    "options": [
+      "Un demonio pacífico",
+      "Un demonio superior",
+      "Un demonio ancestral",
+      "Un demonio convertido"
+    ],
+    "correctAnswer": "Un demonio convertido"
+  },
+  {
+    "question": "¿Cuál es el verdadero nombre de Kira en Death Note?",
+    "options": [
+      "Mello",
+      "L Lawliet",
+      "Near",
+      "Light Yagami"
+    ],
+    "correctAnswer": "Light Yagami"
+  },
+  {
+    "question": "¿Qué habilidad especial tiene Goku en Dragon Ball?",
+    "options": [
+      "Bankai",
+      "Rasengan",
+      "Susanoo",
+      "Kamehameha"
+    ],
+    "correctAnswer": "Kamehameha"
+  },
+  {
+    "question": "¿Qué representa el colosal titán en Attack on Titan?",
+    "options": [
+      "Libertad",
+      "Fuerza bruta",
+      "Venganza",
+      "Destrucción"
+    ],
+    "correctAnswer": "Destrucción"
+  },
+  {
+    "question": "¿Quién es el padre de Ichigo en Bleach?",
+    "options": [
+      "Aizen",
+      "Yamamoto",
+      "Urahara",
+      "Isshin Kurosaki"
+    ],
+    "correctAnswer": "Isshin Kurosaki"
+  },
+  {
+    "question": "¿Qué animal acompaña a Gon en Hunter x Hunter?",
+    "options": [
+      "Oso",
+      "Zorro",
+      "Perro",
+      "Ninguno"
+    ],
+    "correctAnswer": "Ninguno"
+  },
+  {
+    "question": "¿Cuál es el verdadero nombre de Kira en Death Note?",
+    "options": [
+      "L Lawliet",
+      "Light Yagami",
+      "Mello",
+      "Near"
+    ],
+    "correctAnswer": "Light Yagami"
+  },
+  {
+    "question": "¿Cuál es el objetivo de Luffy en One Piece?",
+    "options": [
+      "Conquistar el mundo",
+      "Vengar a su familia",
+      "Ser el Rey de los Piratas",
+      "Encontrar a su hermano"
+    ],
+    "correctAnswer": "Ser el Rey de los Piratas"
+  },
+  {
+    "question": "¿Cuál es el objetivo de Luffy en One Piece?",
+    "options": [
+      "Vengar a su familia",
+      "Encontrar a su hermano",
+      "Conquistar el mundo",
+      "Ser el Rey de los Piratas"
+    ],
+    "correctAnswer": "Ser el Rey de los Piratas"
+  },
+  {
+    "question": "¿En qué anime aparece el personaje Edward Elric?",
+    "options": [
+      "Fullmetal Alchemist",
+      "Bleach",
+      "One Piece",
+      "Attack on Titan"
+    ],
+    "correctAnswer": "Fullmetal Alchemist"
+  },
+  {
+    "question": "¿Qué animal acompaña a Gon en Hunter x Hunter?",
+    "options": [
+      "Perro",
+      "Ninguno",
+      "Zorro",
+      "Oso"
+    ],
+    "correctAnswer": "Ninguno"
+  },
+  {
+    "question": "¿En qué anime aparece el personaje Edward Elric?",
+    "options": [
+      "Bleach",
+      "Attack on Titan",
+      "One Piece",
+      "Fullmetal Alchemist"
+    ],
+    "correctAnswer": "Fullmetal Alchemist"
+  },
+  {
+    "question": "¿En qué anime aparece el personaje Edward Elric?",
+    "options": [
+      "One Piece",
+      "Bleach",
+      "Fullmetal Alchemist",
+      "Attack on Titan"
+    ],
+    "correctAnswer": "Fullmetal Alchemist"
+  },
+  {
+    "question": "¿Quién es el padre de Ichigo en Bleach?",
+    "options": [
+      "Yamamoto",
+      "Urahara",
+      "Aizen",
+      "Isshin Kurosaki"
+    ],
+    "correctAnswer": "Isshin Kurosaki"
+  },
+  {
+    "question": "¿Cuál es el verdadero nombre de Kira en Death Note?",
+    "options": [
+      "Near",
+      "L Lawliet",
+      "Mello",
+      "Light Yagami"
+    ],
+    "correctAnswer": "Light Yagami"
+  },
+  {
+    "question": "¿Quién es el padre de Ichigo en Bleach?",
+    "options": [
+      "Aizen",
+      "Isshin Kurosaki",
+      "Yamamoto",
+      "Urahara"
+    ],
+    "correctAnswer": "Isshin Kurosaki"
+  },
+  {
+    "question": "¿Quién es el padre de Ichigo en Bleach?",
+    "options": [
+      "Aizen",
+      "Yamamoto",
+      "Urahara",
+      "Isshin Kurosaki"
+    ],
+    "correctAnswer": "Isshin Kurosaki"
+  },
+  {
+    "question": "¿Qué tipo de demonio es Nezuko en Kimetsu no Yaiba?",
+    "options": [
+      "Un demonio superior",
+      "Un demonio ancestral",
+      "Un demonio convertido",
+      "Un demonio pacífico"
+    ],
+    "correctAnswer": "Un demonio convertido"
+  },
+  {
+    "question": "¿Cuál es el verdadero nombre de Kira en Death Note?",
+    "options": [
+      "Light Yagami",
+      "Mello",
+      "L Lawliet",
+      "Near"
+    ],
+    "correctAnswer": "Light Yagami"
+  },
+  {
+    "question": "¿Qué animal acompaña a Gon en Hunter x Hunter?",
+    "options": [
+      "Oso",
+      "Perro",
+      "Zorro",
+      "Ninguno"
+    ],
+    "correctAnswer": "Ninguno"
+  },
+  {
+    "question": "¿Qué tipo de demonio es Nezuko en Kimetsu no Yaiba?",
+    "options": [
+      "Un demonio convertido",
+      "Un demonio pacífico",
+      "Un demonio superior",
+      "Un demonio ancestral"
+    ],
+    "correctAnswer": "Un demonio convertido"
+  },
+  {
+    "question": "¿En qué anime aparece el personaje Edward Elric?",
+    "options": [
+      "Attack on Titan",
+      "One Piece",
+      "Bleach",
+      "Fullmetal Alchemist"
+    ],
+    "correctAnswer": "Fullmetal Alchemist"
+  },
+  {
+    "question": "¿Qué tipo de demonio es Nezuko en Kimetsu no Yaiba?",
+    "options": [
+      "Un demonio pacífico",
+      "Un demonio ancestral",
+      "Un demonio convertido",
+      "Un demonio superior"
+    ],
+    "correctAnswer": "Un demonio convertido"
+  },
+  {
+    "question": "¿Qué habilidad especial tiene Goku en Dragon Ball?",
+    "options": [
+      "Rasengan",
+      "Susanoo",
+      "Bankai",
+      "Kamehameha"
+    ],
+    "correctAnswer": "Kamehameha"
+  },
+  {
+    "question": "¿Cuál es el verdadero nombre de Kira en Death Note?",
+    "options": [
+      "Light Yagami",
+      "Near",
+      "L Lawliet",
+      "Mello"
+    ],
+    "correctAnswer": "Light Yagami"
+  },
+  {
+    "question": "¿Cuál es el verdadero nombre de Kira en Death Note?",
+    "options": [
+      "Near",
+      "Mello",
+      "Light Yagami",
+      "L Lawliet"
+    ],
+    "correctAnswer": "Light Yagami"
+  },
+  {
+    "question": "¿Qué habilidad especial tiene Goku en Dragon Ball?",
+    "options": [
+      "Rasengan",
+      "Bankai",
+      "Susanoo",
+      "Kamehameha"
+    ],
+    "correctAnswer": "Kamehameha"
+  },
+  {
+    "question": "¿Qué tipo de demonio es Nezuko en Kimetsu no Yaiba?",
+    "options": [
+      "Un demonio convertido",
+      "Un demonio pacífico",
+      "Un demonio ancestral",
+      "Un demonio superior"
+    ],
+    "correctAnswer": "Un demonio convertido"
+  },
+  {
+    "question": "¿Qué habilidad especial tiene Goku en Dragon Ball?",
+    "options": [
+      "Susanoo",
+      "Kamehameha",
+      "Rasengan",
+      "Bankai"
+    ],
+    "correctAnswer": "Kamehameha"
+  },
+  {
+    "question": "¿Qué habilidad especial tiene Goku en Dragon Ball?",
+    "options": [
+      "Bankai",
+      "Rasengan",
+      "Kamehameha",
+      "Susanoo"
+    ],
+    "correctAnswer": "Kamehameha"
+  },
+  {
+    "question": "¿Cuál es el objetivo de Luffy en One Piece?",
+    "options": [
+      "Ser el Rey de los Piratas",
+      "Encontrar a su hermano",
+      "Conquistar el mundo",
+      "Vengar a su familia"
+    ],
+    "correctAnswer": "Ser el Rey de los Piratas"
+  },
+  {
+    "question": "¿Quién es el protagonista principal de Naruto?",
+    "options": [
+      "Naruto",
+      "Sasuke",
+      "Sakura",
+      "Kakashi"
+    ],
+    "correctAnswer": "Naruto"
+  },
+  {
+    "question": "¿Qué tipo de demonio es Nezuko en Kimetsu no Yaiba?",
+    "options": [
+      "Un demonio pacífico",
+      "Un demonio superior",
+      "Un demonio convertido",
+      "Un demonio ancestral"
+    ],
+    "correctAnswer": "Un demonio convertido"
+  },
+  {
+    "question": "¿Qué tipo de demonio es Nezuko en Kimetsu no Yaiba?",
+    "options": [
+      "Un demonio pacífico",
+      "Un demonio convertido",
+      "Un demonio superior",
+      "Un demonio ancestral"
+    ],
+    "correctAnswer": "Un demonio convertido"
+  },
+  {
+    "question": "¿Cuál es el objetivo de Luffy en One Piece?",
+    "options": [
+      "Vengar a su familia",
+      "Ser el Rey de los Piratas",
+      "Encontrar a su hermano",
+      "Conquistar el mundo"
+    ],
+    "correctAnswer": "Ser el Rey de los Piratas"
+  },
+  {
+    "question": "¿Cuál es el objetivo de Luffy en One Piece?",
+    "options": [
+      "Ser el Rey de los Piratas",
+      "Conquistar el mundo",
+      "Encontrar a su hermano",
+      "Vengar a su familia"
+    ],
+    "correctAnswer": "Ser el Rey de los Piratas"
+  },
+  {
+    "question": "¿Quién es el protagonista principal de Naruto?",
+    "options": [
+      "Sasuke",
+      "Kakashi",
+      "Sakura",
+      "Naruto"
+    ],
+    "correctAnswer": "Naruto"
+  },
+  {
+    "question": "¿Quién es el protagonista principal de Naruto?",
+    "options": [
+      "Kakashi",
+      "Sasuke",
+      "Sakura",
+      "Naruto"
+    ],
+    "correctAnswer": "Naruto"
+  },
+  {
+    "question": "¿Cuál es el verdadero nombre de Kira en Death Note?",
+    "options": [
+      "Mello",
+      "Near",
+      "L Lawliet",
+      "Light Yagami"
+    ],
+    "correctAnswer": "Light Yagami"
+  },
+  {
+    "question": "¿En qué anime aparece el personaje Edward Elric?",
+    "options": [
+      "Bleach",
+      "Attack on Titan",
+      "Fullmetal Alchemist",
+      "One Piece"
+    ],
+    "correctAnswer": "Fullmetal Alchemist"
+  },
+  {
+    "question": "¿Cuál es el objetivo de Luffy en One Piece?",
+    "options": [
+      "Ser el Rey de los Piratas",
+      "Conquistar el mundo",
+      "Vengar a su familia",
+      "Encontrar a su hermano"
+    ],
+    "correctAnswer": "Ser el Rey de los Piratas"
+  },
+  {
+    "question": "¿Quién es el padre de Ichigo en Bleach?",
+    "options": [
+      "Isshin Kurosaki",
+      "Yamamoto",
+      "Aizen",
+      "Urahara"
+    ],
+    "correctAnswer": "Isshin Kurosaki"
+  },
+  {
+    "question": "¿Quién es el padre de Ichigo en Bleach?",
+    "options": [
+      "Urahara",
+      "Isshin Kurosaki",
+      "Yamamoto",
+      "Aizen"
+    ],
+    "correctAnswer": "Isshin Kurosaki"
+  },
+  {
+    "question": "¿En qué anime aparece el personaje Edward Elric?",
+    "options": [
+      "Fullmetal Alchemist",
+      "Attack on Titan",
+      "Bleach",
+      "One Piece"
+    ],
+    "correctAnswer": "Fullmetal Alchemist"
+  },
+  {
+    "question": "¿En qué anime aparece el personaje Edward Elric?",
+    "options": [
+      "Fullmetal Alchemist",
+      "Attack on Titan",
+      "One Piece",
+      "Bleach"
+    ],
+    "correctAnswer": "Fullmetal Alchemist"
+  },
+  {
+    "question": "¿Qué representa el colosal titán en Attack on Titan?",
+    "options": [
+      "Libertad",
+      "Venganza",
+      "Fuerza bruta",
+      "Destrucción"
+    ],
+    "correctAnswer": "Destrucción"
+  },
+  {
+    "question": "¿Qué representa el colosal titán en Attack on Titan?",
+    "options": [
+      "Venganza",
+      "Libertad",
+      "Destrucción",
+      "Fuerza bruta"
+    ],
+    "correctAnswer": "Destrucción"
+  },
+  {
+    "question": "¿Qué animal acompaña a Gon en Hunter x Hunter?",
+    "options": [
+      "Perro",
+      "Zorro",
+      "Oso",
+      "Ninguno"
+    ],
+    "correctAnswer": "Ninguno"
+  },
+  {
+    "question": "¿Qué animal acompaña a Gon en Hunter x Hunter?",
+    "options": [
+      "Perro",
+      "Ninguno",
+      "Oso",
+      "Zorro"
+    ],
+    "correctAnswer": "Ninguno"
+  },
+  {
+    "question": "¿Qué habilidad especial tiene Goku en Dragon Ball?",
+    "options": [
+      "Kamehameha",
+      "Bankai",
+      "Rasengan",
+      "Susanoo"
+    ],
+    "correctAnswer": "Kamehameha"
+  },
+  {
+    "question": "¿Qué habilidad especial tiene Goku en Dragon Ball?",
+    "options": [
+      "Susanoo",
+      "Kamehameha",
+      "Bankai",
+      "Rasengan"
+    ],
+    "correctAnswer": "Kamehameha"
+  },
+  {
+    "question": "¿Qué animal acompaña a Gon en Hunter x Hunter?",
+    "options": [
+      "Zorro",
+      "Oso",
+      "Ninguno",
+      "Perro"
+    ],
+    "correctAnswer": "Ninguno"
+  },
+  {
+    "question": "¿Cuál es el verdadero nombre de Kira en Death Note?",
+    "options": [
+      "L Lawliet",
+      "Near",
+      "Mello",
+      "Light Yagami"
+    ],
+    "correctAnswer": "Light Yagami"
+  },
+  {
+    "question": "¿Cuál es el nombre del Shinigami que sigue a Light Yagami en Death Note?",
+    "options": [
+      "Ryuk",
+      "Misa",
+      "L",
+      "Rem"
+    ],
+    "correctAnswer": "Ryuk"
+  },
+  {
+    "question": "¿Cuál es el objetivo de Luffy en One Piece?",
+    "options": [
+      "Ser el Rey de los Piratas",
+      "Vengar a su familia",
+      "Conquistar el mundo",
+      "Encontrar a su hermano"
+    ],
+    "correctAnswer": "Ser el Rey de los Piratas"
+  },
+  {
+    "question": "¿Quién es el padre de Ichigo en Bleach?",
+    "options": [
+      "Aizen",
+      "Urahara",
+      "Yamamoto",
+      "Isshin Kurosaki"
+    ],
+    "correctAnswer": "Isshin Kurosaki"
+  },
+  {
+    "question": "¿Cuál es el verdadero nombre de Kira en Death Note?",
+    "options": [
+      "Light Yagami",
+      "Mello",
+      "Near",
+      "L Lawliet"
+    ],
+    "correctAnswer": "Light Yagami"
+  },
+  {
+    "question": "¿Quién es el protagonista principal de Naruto?",
+    "options": [
+      "Naruto",
+      "Kakashi",
+      "Sasuke",
+      "Sakura"
+    ],
+    "correctAnswer": "Naruto"
+  },
+  {
+    "question": "¿Cuál es el nombre del Shinigami que sigue a Light Yagami en Death Note?",
+    "options": [
+      "Ryuk",
+      "L",
+      "Rem",
+      "Misa"
+    ],
+    "correctAnswer": "Ryuk"
+  },
+  {
+    "question": "¿Qué representa el colosal titán en Attack on Titan?",
+    "options": [
+      "Fuerza bruta",
+      "Destrucción",
+      "Libertad",
+      "Venganza"
+    ],
+    "correctAnswer": "Destrucción"
+  },
+  {
+    "question": "¿Cuál es el nombre del Shinigami que sigue a Light Yagami en Death Note?",
+    "options": [
+      "Misa",
+      "L",
+      "Ryuk",
+      "Rem"
+    ],
+    "correctAnswer": "Ryuk"
+  },
+  {
+    "question": "¿Qué tipo de demonio es Nezuko en Kimetsu no Yaiba?",
+    "options": [
+      "Un demonio convertido",
+      "Un demonio superior",
+      "Un demonio pacífico",
+      "Un demonio ancestral"
+    ],
+    "correctAnswer": "Un demonio convertido"
+  },
+  {
+    "question": "¿Quién es el protagonista principal de Naruto?",
+    "options": [
+      "Sakura",
+      "Kakashi",
+      "Naruto",
+      "Sasuke"
+    ],
+    "correctAnswer": "Naruto"
+  },
+  {
+    "question": "¿Cuál es el nombre del Shinigami que sigue a Light Yagami en Death Note?",
+    "options": [
+      "Rem",
+      "L",
+      "Ryuk",
+      "Misa"
+    ],
+    "correctAnswer": "Ryuk"
+  },
+  {
+    "question": "¿Quién es el padre de Ichigo en Bleach?",
+    "options": [
+      "Yamamoto",
+      "Aizen",
+      "Urahara",
+      "Isshin Kurosaki"
+    ],
+    "correctAnswer": "Isshin Kurosaki"
+  },
+  {
+    "question": "¿Qué animal acompaña a Gon en Hunter x Hunter?",
+    "options": [
+      "Ninguno",
+      "Perro",
+      "Zorro",
+      "Oso"
+    ],
+    "correctAnswer": "Ninguno"
+  },
+  {
+    "question": "¿Quién es el padre de Ichigo en Bleach?",
+    "options": [
+      "Isshin Kurosaki",
+      "Urahara",
+      "Aizen",
+      "Yamamoto"
+    ],
+    "correctAnswer": "Isshin Kurosaki"
+  },
+  {
+    "question": "¿Cuál es el verdadero nombre de Kira en Death Note?",
+    "options": [
+      "Near",
+      "L Lawliet",
+      "Light Yagami",
+      "Mello"
+    ],
+    "correctAnswer": "Light Yagami"
+  },
+  {
+    "question": "¿En qué anime aparece el personaje Edward Elric?",
+    "options": [
+      "Bleach",
+      "Fullmetal Alchemist",
+      "Attack on Titan",
+      "One Piece"
+    ],
+    "correctAnswer": "Fullmetal Alchemist"
+  },
+  {
+    "question": "¿En qué anime aparece el personaje Edward Elric?",
+    "options": [
+      "Attack on Titan",
+      "Fullmetal Alchemist",
+      "Bleach",
+      "One Piece"
+    ],
+    "correctAnswer": "Fullmetal Alchemist"
+  },
+  {
+    "question": "¿Quién es el protagonista principal de Naruto?",
+    "options": [
+      "Sakura",
+      "Sasuke",
+      "Kakashi",
+      "Naruto"
+    ],
+    "correctAnswer": "Naruto"
+  },
+  {
+    "question": "¿Qué representa el colosal titán en Attack on Titan?",
+    "options": [
+      "Fuerza bruta",
+      "Libertad",
+      "Destrucción",
+      "Venganza"
+    ],
+    "correctAnswer": "Destrucción"
+  },
+  {
+    "question": "¿Qué tipo de demonio es Nezuko en Kimetsu no Yaiba?",
+    "options": [
+      "Un demonio convertido",
+      "Un demonio superior",
+      "Un demonio ancestral",
+      "Un demonio pacífico"
+    ],
+    "correctAnswer": "Un demonio convertido"
+  },
+  {
+    "question": "¿Qué representa el colosal titán en Attack on Titan?",
+    "options": [
+      "Fuerza bruta",
+      "Libertad",
+      "Venganza",
+      "Destrucción"
+    ],
+    "correctAnswer": "Destrucción"
+  },
+  {
+    "question": "¿Qué habilidad especial tiene Goku en Dragon Ball?",
+    "options": [
+      "Rasengan",
+      "Susanoo",
+      "Kamehameha",
+      "Bankai"
+    ],
+    "correctAnswer": "Kamehameha"
+  },
+  {
+    "question": "¿Qué representa el colosal titán en Attack on Titan?",
+    "options": [
+      "Destrucción",
+      "Fuerza bruta",
+      "Venganza",
+      "Libertad"
+    ],
+    "correctAnswer": "Destrucción"
+  },
+  {
+    "question": "¿Qué representa el colosal titán en Attack on Titan?",
+    "options": [
+      "Fuerza bruta",
+      "Venganza",
+      "Libertad",
+      "Destrucción"
+    ],
+    "correctAnswer": "Destrucción"
+  },
+  {
+    "question": "¿Quién es el padre de Ichigo en Bleach?",
+    "options": [
+      "Aizen",
+      "Isshin Kurosaki",
+      "Urahara",
+      "Yamamoto"
+    ],
+    "correctAnswer": "Isshin Kurosaki"
+  },
+  {
+    "question": "¿Cuál es el nombre del Shinigami que sigue a Light Yagami en Death Note?",
+    "options": [
+      "Rem",
+      "Misa",
+      "L",
+      "Ryuk"
+    ],
+    "correctAnswer": "Ryuk"
+  },
+  {
+    "question": "¿Cuál es el nombre del Shinigami que sigue a Light Yagami en Death Note?",
+    "options": [
+      "Ryuk",
+      "Rem",
+      "Misa",
+      "L"
+    ],
+    "correctAnswer": "Ryuk"
+  },
+  {
+    "question": "¿Cuál es el objetivo de Luffy en One Piece?",
+    "options": [
+      "Conquistar el mundo",
+      "Ser el Rey de los Piratas",
+      "Vengar a su familia",
+      "Encontrar a su hermano"
+    ],
+    "correctAnswer": "Ser el Rey de los Piratas"
+  },
+  {
+    "question": "¿Qué tipo de demonio es Nezuko en Kimetsu no Yaiba?",
+    "options": [
+      "Un demonio convertido",
+      "Un demonio ancestral",
+      "Un demonio pacífico",
+      "Un demonio superior"
+    ],
+    "correctAnswer": "Un demonio convertido"
+  },
+  {
+    "question": "¿Qué tipo de demonio es Nezuko en Kimetsu no Yaiba?",
+    "options": [
+      "Un demonio ancestral",
+      "Un demonio convertido",
+      "Un demonio superior",
+      "Un demonio pacífico"
+    ],
+    "correctAnswer": "Un demonio convertido"
+  },
+  {
+    "question": "¿Qué representa el colosal titán en Attack on Titan?",
+    "options": [
+      "Libertad",
+      "Fuerza bruta",
+      "Venganza",
+      "Destrucción"
+    ],
+    "correctAnswer": "Destrucción"
+  },
+  {
+    "question": "¿Qué animal acompaña a Gon en Hunter x Hunter?",
+    "options": [
+      "Oso",
+      "Zorro",
+      "Perro",
+      "Ninguno"
+    ],
+    "correctAnswer": "Ninguno"
+  },
+  {
+    "question": "¿Quién es el líder de los Survey Corps en Attack on Titan?",
+    "options": [
+      "Armin Arlert",
+      "Eren Jaeger",
+      "Levi Ackerman",
+      "Erwin Smith"
+    ],
+    "correctAnswer": "Erwin Smith"
+  },
+  {
+    "question": "¿Qué aldea ninja es conocida por la hoja?",
+    "options": [
+      "Kumo",
+      "Kiri",
+      "Konoha",
+      "Suna"
+    ],
+    "correctAnswer": "Konoha"
+  },
+  {
+    "question": "¿Cuál es la carta más poderosa de Yugi en Yu-Gi-Oh?",
+    "options": [
+      "Dragón Blanco de Ojos Azules",
+      "Slifer el Dragón del Cielo",
+      "Exodia",
+      "Mago Oscuro"
+    ],
+    "correctAnswer": "Exodia"
+  },
+  {
+    "question": "¿Cómo se llama el espadachín de One Piece?",
+    "options": [
+      "Sanji",
+      "Usopp",
+      "Brook",
+      "Zoro"
+    ],
+    "correctAnswer": "Zoro"
+  },
+  {
+    "question": "¿Qué es un 'ghoul' en Tokyo Ghoul?",
+    "options": [
+      "Un cazador de monstruos",
+      "Un robot",
+      "Un dios",
+      "Un ser que se alimenta de humanos"
+    ],
+    "correctAnswer": "Un ser que se alimenta de humanos"
+  },
+  {
+    "question": "¿Quién es el maestro de Saitama en One Punch Man?",
+    "options": [
+      "Genos",
+      "No tiene",
+      "Mumen Rider",
+      "Bang"
+    ],
+    "correctAnswer": "No tiene"
+  },
+  {
+    "question": "¿Qué poder tiene Lelouch en Code Geass?",
+    "options": [
+      "Manipulación de fuego",
+      "Control del tiempo",
+      "Súper fuerza",
+      "Geass para controlar mentes"
+    ],
+    "correctAnswer": "Geass para controlar mentes"
+  },
+  {
+    "question": "¿Quién es el autor de Dragon Ball?",
+    "options": [
+      "Akira Toriyama",
+      "Masashi Kishimoto",
+      "Eiichiro Oda",
+      "Tite Kubo"
+    ],
+    "correctAnswer": "Akira Toriyama"
+  },
+  {
+    "question": "¿Cómo se llama el protagonista de Demon Slayer?",
+    "options": [
+      "Inosuke",
+      "Tanjiro",
+      "Rengoku",
+      "Zenitsu"
+    ],
+    "correctAnswer": "Tanjiro"
+  },
+  {
+    "question": "¿Qué instrumento toca Kaori en Your Lie in April?",
+    "options": [
+      "Violín",
+      "Guitarra",
+      "Flauta",
+      "Piano"
+    ],
+    "correctAnswer": "Violín"
+  }
+]

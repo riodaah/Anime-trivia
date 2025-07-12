@@ -1,0 +1,79 @@
+body {
+  background-image: url('./Images/Background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Para que la imagen de fondo no se mueva con el scroll */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  overflow: hidden; /* Evita barras de scroll por la animación */
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.App {
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  background-color: rgba(27, 27, 46, 0.9); /* Fondo semi-transparente para el contenido */
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Sombra más suave */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.card {
+  background-color: rgba(27, 27, 46, 0.7) !important; /* Fondo semi-transparente para las tarjetas */
+  border: none !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra sutil para las tarjetas */
+  border-radius: 10px;
+}
+
+.btn-primary {
+    background-color: #e94560 !important;
+    border-color: #e94560 !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
+    transition: all 0.3s ease; /* Transición más suave */
+    box-shadow: 0 4px 8px rgba(233, 69, 96, 0.3); /* Sombra para el botón */
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.02); /* Efecto hover más pronunciado */
+    box-shadow: 0 6px 12px rgba(233, 69, 96, 0.4);
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+.btn-success {
+    background-color: #4CAF50 !important;
+    border-color: #4CAF50 !important;
+}
+
+.btn-danger {
+    background-color: #f44336 !important;
+    border-color: #f44336 !important;
+}
+
+.answer-btn.selected.correct {
+    background-color: #4CAF50 !important; /* Green */
+    border-color: #4CAF50 !important;
+}
+
+.answer-btn.selected.incorrect {
+    background-color: #f44336 !important; /* Red */
+    border-color: #f44336 !important;
+}
