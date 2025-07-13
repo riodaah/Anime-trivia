@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Button, Container, Row, Col, Spinner } from 'react-bootstrap';
 import Timer from './Timer';
+import { Card, Button, Container, Row, Col, Spinner } from 'react-bootstrap';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase';
 
 interface Question {
+  id: string;
   question: string;
   options: string[];
   correctAnswer: string;
@@ -10,19 +13,11 @@ interface Question {
 
 interface Props {
   onGameOver: (score: number) => void;
-  onScoreUpdate: (score: number) => void; // Nueva prop para actualizar el puntaje en App.tsx
+  onScoreUpdate: (score: number) => void;
+  allQuestions: Question[];
 }
 
-// --- Cargar preguntas desde JSON ---
-const fetchQuestions = async (): Promise<Question[]> => {
-  const response = await fetch('/questions.json');
-  const data = await response.json();
-  return data;
-};
-// --- Fin de la carga ---
-
-const GameScreen: React.FC<Props> = ({ onGameOver, onScoreUpdate }) => {
-  const [allQuestions, setAllQuestions] = useState<Question[]>([]);
+const GameScreen: React.FC<Props> = ({ onGameOver, onScoreUpdate, allQuestions }) => {
   const [question, setQuestion] = useState<Question | null>(null);
   const [score, setScore] = useState(0);
   const [questionCount, setQuestionCount] = useState(0);
@@ -30,19 +25,6 @@ const GameScreen: React.FC<Props> = ({ onGameOver, onScoreUpdate }) => {
   const [isAnswered, setIsAnswered] = useState(false);
   const [timerKey, setTimerKey] = useState(0);
   const [usedQuestions, setUsedQuestions] = useState<string[]>([]);
-
-  useEffect(() => {
-    const loadInitialQuestions = async () => {
-      try {
-        const questions = await fetchQuestions();
-        setAllQuestions(questions);
-      } catch (error) {
-        console.error("Error al cargar las preguntas:", error);
-        // Opcional: manejar el error, por ejemplo, mostrando un mensaje al usuario
-      }
-    };
-    loadInitialQuestions();
-  }, []);
 
   useEffect(() => {
     if (allQuestions.length > 0) {
@@ -53,7 +35,7 @@ const GameScreen: React.FC<Props> = ({ onGameOver, onScoreUpdate }) => {
   const loadQuestion = () => {
     setIsAnswered(false);
     setSelectedAnswer(null);
-    setQuestion(null); // Muestra el spinner
+    
 
     let availableQuestions = allQuestions.filter(q => !usedQuestions.includes(q.question));
 
@@ -113,34 +95,38 @@ const GameScreen: React.FC<Props> = ({ onGameOver, onScoreUpdate }) => {
     return 'secondary';
   };
 
-  if (!question || allQuestions.length === 0) {
-    return <Spinner animation="border" />;
-  }
-
   return (
     <Container>
       <Card className="p-4">
         <Card.Body>
-          <Row className="justify-content-between mb-3">
-            <Col><h4>Puntaje: {score}</h4></Col>
-            <Col><h4>Pregunta: {questionCount + 1}</h4></Col>
-          </Row>
-          <Timer onTimeUp={handleTimeUp} timerKey={timerKey} />
-          <Card.Title as="h2" className="my-4">{question.question}</Card.Title>
-          <Row xs={1} md={2} className="g-3">
-            {question.options.map((option, index) => (
-              <Col key={index}>
-                <Button
-                  className={`answer-btn w-100 p-3 ${selectedAnswer === option ? (option === question.correctAnswer ? 'correct' : 'incorrect') : ''}`}
-                  variant={getButtonVariant(option)}
-                  onClick={() => handleAnswer(option)}
-                  disabled={isAnswered}
-                >
-                  {option}
-                </Button>
-              </Col>
-            ))}
-          </Row>
+          {(!question || allQuestions.length === 0) ? (
+            <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '200px' }}>
+              <Spinner animation="border" />
+            </div>
+          ) : (
+            <>
+              <Row className="justify-content-between mb-3">
+                <Col><h4>Puntaje: {score}</h4></Col>
+                <Col><h4>Pregunta: {questionCount + 1}</h4></Col>
+              </Row>
+              <Timer onTimeUp={handleTimeUp} timerKey={timerKey} />
+              <Card.Title as="h2" className="my-4">{question.question}</Card.Title>
+              <Row xs={1} md={2} className="g-3">
+                {question.options.map((option, index) => (
+                  <Col key={index}>
+                    <Button
+                      className={`answer-btn w-100 p-3 ${selectedAnswer === option ? (option === question.correctAnswer ? 'correct' : 'incorrect') : ''}`}
+                      variant={getButtonVariant(option)}
+                      onClick={() => handleAnswer(option)}
+                      disabled={isAnswered}
+                    >
+                      {option}
+                    </Button>
+                  </Col>
+                ))}
+              </Row>
+            </>
+          )}
         </Card.Body>
       </Card>
     </Container>

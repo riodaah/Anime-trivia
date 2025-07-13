@@ -1,0 +1,82 @@
+
+> anime-trivia@0.1.0 start
+> react-scripts start
+
+(node:4332) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:4332) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Compiled successfully!
+
+You can now view anime-trivia in the browser.
+
+  Local:            http://localhost:3000
+  On Your Network:  http://192.168.100.6:3000
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
+webpack compiled [1m[32msuccessfully[39m[22m
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/App.tsx:56:17
+TS2304: Cannot find name 'StartScreen'.
+  [0m [90m 54 |[39m     [36mswitch[39m (gameState) {
+   [90m 55 |[39m       [36mcase[39m [32m'start'[39m[33m:[39m
+  [31m[1m>[22m[39m[90m 56 |[39m         [36mreturn[39m [33m<[39m[33mStartScreen[39m onStart[33m=[39m{handleStart} [33m/[39m[33m>[39m[33m;[39m
+   [90m    |[39m                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 57 |[39m       [36mcase[39m [32m'playing'[39m[33m:[39m
+   [90m 58 |[39m         [36mreturn[39m (
+   [90m 59 |[39m           [33m<[39m[33mdiv[39m className[33m=[39m[32m"game-container"[39m[33m>[39m[0m
+
+ERROR in src/App.tsx:61:16
+TS2304: Cannot find name 'GameScreen'.
+  [0m [90m 59 |[39m           [33m<[39m[33mdiv[39m className[33m=[39m[32m"game-container"[39m[33m>[39m
+   [90m 60 |[39m             [33m<[39m[33mdiv[39m className[33m=[39m[32m"game-screen"[39m[33m>[39m
+  [31m[1m>[22m[39m[90m 61 |[39m               [33m<[39m[33mGameScreen[39m onGameOver[33m=[39m{handleGameOver} onScoreUpdate[33m=[39m{handleScoreUpdate} [33m/[39m[33m>[39m
+   [90m    |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 62 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+   [90m 63 |[39m             [33m<[39m[33mdiv[39m className[33m=[39m[32m"leaderboard-screen"[39m[33m>[39m
+   [90m 64 |[39m               [33m<[39m[33mLeaderboard[39m onRestart[33m=[39m{handleRestart} lastScore[33m=[39m{lastScore} nickname[33m=[39m{nickname} scores[33m=[39m{scores} [33m/[39m[33m>[39m[0m
+
+ERROR in src/App.tsx:64:16
+TS2304: Cannot find name 'Leaderboard'.
+  [0m [90m 62 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+   [90m 63 |[39m             [33m<[39m[33mdiv[39m className[33m=[39m[32m"leaderboard-screen"[39m[33m>[39m
+  [31m[1m>[22m[39m[90m 64 |[39m               [33m<[39m[33mLeaderboard[39m onRestart[33m=[39m{handleRestart} lastScore[33m=[39m{lastScore} nickname[33m=[39m{nickname} scores[33m=[39m{scores} [33m/[39m[33m>[39m
+   [90m    |[39m                [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 65 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+   [90m 66 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+   [90m 67 |[39m         )[33m;[39m[0m
+
+ERROR in src/App.tsx:69:17
+TS2304: Cannot find name 'Leaderboard'.
+  [0m [90m 67 |[39m         )[33m;[39m
+   [90m 68 |[39m       [36mcase[39m [32m'gameOver'[39m[33m:[39m
+  [31m[1m>[22m[39m[90m 69 |[39m         [36mreturn[39m [33m<[39m[33mLeaderboard[39m onRestart[33m=[39m{handleRestart} lastScore[33m=[39m{lastScore} nickname[33m=[39m{nickname} scores[33m=[39m{scores} [33m/[39m[33m>[39m[33m;[39m
+   [90m    |[39m                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 70 |[39m       [36mdefault[39m[33m:[39m
+   [90m 71 |[39m         [36mreturn[39m [33m<[39m[33mStartScreen[39m onStart[33m=[39m{handleStart} [33m/[39m[33m>[39m[33m;[39m
+   [90m 72 |[39m     }[0m
+
+ERROR in src/App.tsx:71:17
+TS2304: Cannot find name 'StartScreen'.
+  [0m [90m 69 |[39m         [36mreturn[39m [33m<[39m[33mLeaderboard[39m onRestart[33m=[39m{handleRestart} lastScore[33m=[39m{lastScore} nickname[33m=[39m{nickname} scores[33m=[39m{scores} [33m/[39m[33m>[39m[33m;[39m
+   [90m 70 |[39m       [36mdefault[39m[33m:[39m
+  [31m[1m>[22m[39m[90m 71 |[39m         [36mreturn[39m [33m<[39m[33mStartScreen[39m onStart[33m=[39m{handleStart} [33m/[39m[33m>[39m[33m;[39m
+   [90m    |[39m                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 72 |[39m     }
+   [90m 73 |[39m   }[33m;[39m
+   [90m 74 |[39m[0m
+
+ERROR in src/components/GameScreen.tsx:129:12
+TS2304: Cannot find name 'Timer'.
+  [0m [90m 127 |[39m             [33m<[39m[33mCol[39m[33m>[39m[33m<[39m[33mh4[39m[33m>[39m[33mPregunta[39m[33m:[39m {questionCount [33m+[39m [35m1[39m}[33m<[39m[33m/[39m[33mh4[39m[33m>[39m[33m<[39m[33m/[39m[33mCol[39m[33m>[39m
+   [90m 128 |[39m           [33m<[39m[33m/[39m[33mRow[39m[33m>[39m
+  [31m[1m>[22m[39m[90m 129 |[39m           [33m<[39m[33mTimer[39m onTimeUp[33m=[39m{handleTimeUp} timerKey[33m=[39m{timerKey} [33m/[39m[33m>[39m
+   [90m     |[39m            [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+   [90m 130 |[39m           [33m<[39m[33mCard[39m[33m.[39m[33mTitle[39m [36mas[39m[33m=[39m[32m"h2"[39m className[33m=[39m[32m"my-4"[39m[33m>[39m{question[33m.[39mquestion}[33m<[39m[33m/[39m[33mCard[39m[33m.[39m[33mTitle[39m[33m>[39m
+   [90m 131 |[39m           [33m<[39m[33mRow[39m xs[33m=[39m{[35m1[39m} md[33m=[39m{[35m2[39m} className[33m=[39m[32m"g-3"[39m[33m>[39m
+   [90m 132 |[39m             {question[33m.[39moptions[33m.[39mmap((option[33m,[39m index) [33m=>[39m ([0m
+

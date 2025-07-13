@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Card, Button, Container, Table } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Card, Button, Container, Table, Pagination } from 'react-bootstrap';
 
 interface Score {
   nickname: string;
@@ -10,10 +10,20 @@ interface Props {
   onRestart: () => void;
   lastScore: number | null;
   nickname: string;
-  scores: Score[]; // Ahora recibe las puntuaciones como prop
+  scores: Score[];
 }
 
 const Leaderboard: React.FC<Props> = ({ onRestart, lastScore, nickname, scores }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const scoresPerPage = 15;
+
+  const indexOfLastScore = currentPage * scoresPerPage;
+  const indexOfFirstScore = indexOfLastScore - scoresPerPage;
+  const currentScores = scores.slice(indexOfFirstScore, indexOfLastScore);
+
+  const totalPages = Math.ceil(scores.length / scoresPerPage);
+
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
     <Container>
@@ -34,15 +44,22 @@ const Leaderboard: React.FC<Props> = ({ onRestart, lastScore, nickname, scores }
               </tr>
             </thead>
             <tbody>
-              {scores.map((score, index) => (
-                <tr key={index}>
-                  <td>{index + 1}</td>
+              {currentScores.map((score, index) => (
+                <tr key={index} className={score.nickname === nickname ? 'table-primary' : ''}>
+                  <td>{indexOfFirstScore + index + 1}</td>
                   <td>{score.nickname}</td>
                   <td>{score.score}</td>
                 </tr>
               ))}
             </tbody>
           </Table>
+          <Pagination>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map(number => (
+              <Pagination.Item key={number} active={number === currentPage} onClick={() => paginate(number)}>
+                {number}
+              </Pagination.Item>
+            ))}
+          </Pagination>
           <Button variant="primary" size="lg" onClick={onRestart} className="mt-3">
             Jugar de Nuevo
           </Button>
