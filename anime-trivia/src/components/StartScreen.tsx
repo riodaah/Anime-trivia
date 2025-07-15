@@ -19,7 +19,7 @@ const StartScreen: React.FC<Props> = ({ onStart }) => {
     <Container>
       <Card className="text-center p-4">
         <Card.Body>
-          <Card.Title as="h1">Anime Trivia Challenge</Card.Title>
+          <Card.Title as="h1">Bienvenido a la trivia de LuffySunny</Card.Title>
           <Card.Text>
             Ingresa tu nickname para comenzar.
           </Card.Text>
@@ -34,7 +34,7 @@ const StartScreen: React.FC<Props> = ({ onStart }) => {
               />
             </Form.Group>
             <Button variant="primary" type="submit" size="lg">
-              Comenzar
+              Jugar
             </Button>
           </Form>
         </Card.Body>
