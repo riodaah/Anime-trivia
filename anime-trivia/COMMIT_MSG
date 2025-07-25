@@ -1,1 +1,1 @@
-feat: Implement smooth wallpaper transition
+fix: Preload wallpaper images to prevent flickering

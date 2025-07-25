@@ -13,7 +13,7 @@ const LoadingScreen = () => {
   };
 
   return (
-    <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#1B1B2E' }}>
+    <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#1B1B2E', zIndex: 9999 }}>
       <Lottie options={defaultOptions} height={400} width={400} />
     </div>
   );
