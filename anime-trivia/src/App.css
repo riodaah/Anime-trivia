@@ -1,15 +1,18 @@
 body {
-  background-image: url('./Images/Background.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed; /* Para que la imagen de fondo no se mueva con el scroll */
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   text-align: center;
+}
+
+.body-background {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: background-image 2s ease-in-out; /* Transición suave */
 }
 
 @keyframes gradient {

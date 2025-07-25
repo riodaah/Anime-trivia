@@ -5,7 +5,19 @@ import Leaderboard from './components/Leaderboard';
 import { collection, addDoc, query, orderBy, onSnapshot, getDocs } from 'firebase/firestore';
 import { db } from './firebase';
 import './App.css';
-import { Spinner, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
+import LoadingScreen from './components/LoadingScreen';
+
+import wallpaper1 from './Images/Wallpapers/1.png';
+import wallpaper2 from './Images/Wallpapers/2.jpeg';
+import wallpaper3 from './Images/Wallpapers/3.jpg';
+import wallpaper4 from './Images/Wallpapers/4.jpg';
+import wallpaper5 from './Images/Wallpapers/5.png';
+import wallpaper6 from './Images/Wallpapers/6.png';
+import wallpaper7 from './Images/Wallpapers/7.png';
+import wallpaper8 from './Images/Wallpapers/8.png';
+import wallpaper9 from './Images/Wallpapers/9.png';
+
 
 interface Score {
   nickname: string;
@@ -29,6 +41,28 @@ function App() {
   const [allQuestions, setAllQuestions] = useState<Question[]>([]);
   const [loadingQuestions, setLoadingQuestions] = useState(true);
 
+  const wallpapers = [
+    wallpaper1, wallpaper2, wallpaper3, wallpaper4, wallpaper5,
+    wallpaper6, wallpaper7, wallpaper8, wallpaper9
+  ];
+  const [currentWallpaperIndex, setCurrentWallpaperIndex] = useState(0);
+
+  useEffect(() => {
+    if (!loadingQuestions) {
+      document.body.classList.add('body-background');
+      const interval = setInterval(() => {
+        setCurrentWallpaperIndex(prevIndex => (prevIndex + 1) % wallpapers.length);
+      }, 10000); // Cambia la imagen cada 10 segundos
+      return () => clearInterval(interval);
+    } else {
+      document.body.classList.remove('body-background');
+    }
+  }, [loadingQuestions, wallpapers.length]);
+
+  useEffect(() => {
+    document.body.style.backgroundImage = `url(${wallpapers[currentWallpaperIndex]})`;
+  }, [currentWallpaperIndex, wallpapers]);
+
   useEffect(() => {
     const fetchQuestions = async (): Promise<Question[]> => {
       const questionsCollection = collection(db, 'questions');
@@ -44,7 +78,9 @@ function App() {
       } catch (error) {
         console.error("Error al cargar todas las preguntas:", error);
       } finally {
-        setLoadingQuestions(false);
+        setTimeout(() => {
+          setLoadingQuestions(false);
+        }, 500);
       }
     };
 
@@ -59,7 +95,10 @@ function App() {
       setScores(scoresData);
     });
 
-    return () => unsubscribe();
+    return () => {
+      unsubscribe();
+      document.body.classList.remove('body-background');
+    }
   }, []);
 
   const handleStart = (name: string) => {
@@ -93,40 +132,33 @@ function App() {
     setGameState('start');
   };
 
-  const renderGameState = () => {
-    if (loadingQuestions) {
-      return (
-        <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
-          <Spinner animation="border" />
-        </div>
-      );
-    }
+  if (loadingQuestions) {
+    return <LoadingScreen />;
+  }
 
-    switch (gameState) {
-      case 'start':
-        return <StartScreen onStart={handleStart} />;
-      case 'playing':
-        return (
-          <Row>
-            <Col md={7}>
-              <GameScreen allQuestions={allQuestions} onGameOver={handleGameOver} onScoreUpdate={handleScoreUpdate} />
-            </Col>
-            <Col md={5}>
-              <Leaderboard onRestart={handleRestart} lastScore={lastScore} nickname={nickname} scores={scores} />
-            </Col>
-          </Row>
-        );
-      case 'gameOver':
-        return <Leaderboard onRestart={handleRestart} lastScore={lastScore} nickname={nickname} scores={scores} />;
-      default:
-        return <StartScreen onStart={handleStart} />;
-    }
-  };
-
-  console.log("App.tsx se está renderizando.");
   return (
     <div className="App">
-      {renderGameState()}
+      {(() => {
+        switch (gameState) {
+          case 'start':
+            return <StartScreen onStart={handleStart} />;
+          case 'playing':
+            return (
+              <Row>
+                <Col md={7}>
+                  <GameScreen allQuestions={allQuestions} onGameOver={handleGameOver} onScoreUpdate={handleScoreUpdate} scores={scores} nickname={nickname} />
+                </Col>
+                <Col md={5}>
+                  <Leaderboard onRestart={handleRestart} lastScore={lastScore} nickname={nickname} scores={scores} />
+                </Col>
+              </Row>
+            );
+          case 'gameOver':
+            return <Leaderboard onRestart={handleRestart} lastScore={lastScore} nickname={nickname} scores={scores} />;
+          default:
+            return <StartScreen onStart={handleStart} />;
+        }
+      })()}
     </div>
   );
 }

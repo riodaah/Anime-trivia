@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Timer from './Timer';
 import { Card, Button, Container, Row, Col, Spinner } from 'react-bootstrap';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../firebase';
+import Lottie from 'react-lottie';
+import animationData from '../Lotties/lightning(neon).json';
 
 interface Question {
   id: string;
@@ -11,13 +11,20 @@ interface Question {
   correctAnswer: string;
 }
 
+interface Score {
+  nickname: string;
+  score: number;
+}
+
 interface Props {
   onGameOver: (score: number) => void;
   onScoreUpdate: (score: number) => void;
   allQuestions: Question[];
+  scores: Score[];
+  nickname: string;
 }
 
-const GameScreen: React.FC<Props> = ({ onGameOver, onScoreUpdate, allQuestions }) => {
+const GameScreen: React.FC<Props> = ({ onGameOver, onScoreUpdate, allQuestions, scores, nickname }) => {
   const [question, setQuestion] = useState<Question | null>(null);
   const [score, setScore] = useState(0);
   const [questionCount, setQuestionCount] = useState(0);
@@ -25,6 +32,17 @@ const GameScreen: React.FC<Props> = ({ onGameOver, onScoreUpdate, allQuestions }
   const [isAnswered, setIsAnswered] = useState(false);
   const [timerKey, setTimerKey] = useState(0);
   const [usedQuestions, setUsedQuestions] = useState<string[]>([]);
+  const [showLottie, setShowLottie] = useState(false);
+  const correctButtonRef = useRef<HTMLButtonElement>(null);
+
+  const defaultOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
 
   useEffect(() => {
     if (allQuestions.length > 0) {
@@ -35,21 +53,20 @@ const GameScreen: React.FC<Props> = ({ onGameOver, onScoreUpdate, allQuestions }
   const loadQuestion = () => {
     setIsAnswered(false);
     setSelectedAnswer(null);
-    
+    setShowLottie(false);
 
     let availableQuestions = allQuestions.filter(q => !usedQuestions.includes(q.question));
 
     if (availableQuestions.length === 0) {
-        // Si ya se usaron todas las preguntas, se reinicia la lista de usadas
-        setUsedQuestions([]);
-        availableQuestions = allQuestions;
+      setUsedQuestions([]);
+      availableQuestions = allQuestions;
     }
     
     const newQuestion = availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
     setUsedQuestions([...usedQuestions, newQuestion.question]);
     
     setQuestion(newQuestion);
-    setTimerKey(prevKey => prevKey + 1); // Reinicia el temporizador
+    setTimerKey(prevKey => prevKey + 1);
   };
 
   const handleAnswer = (answer: string) => {
@@ -60,12 +77,19 @@ const GameScreen: React.FC<Props> = ({ onGameOver, onScoreUpdate, allQuestions }
 
     const isCorrect = answer === question?.correctAnswer;
 
+    if (isCorrect) {
+      const playerRank = scores.findIndex(s => s.nickname === nickname) + 1;
+      if (playerRank <= 5 && playerRank > 0) {
+        setShowLottie(true);
+      }
+    }
+
     setTimeout(() => {
       let newScore = score;
       if (isCorrect) {
         newScore = score + 1;
         setScore(newScore);
-        onScoreUpdate(newScore); // Notificar a App.tsx sobre el cambio de puntaje
+        onScoreUpdate(newScore);
       }
       
       setQuestionCount(questionCount + 1);
@@ -77,7 +101,7 @@ const GameScreen: React.FC<Props> = ({ onGameOver, onScoreUpdate, allQuestions }
           loadQuestion();
         }
       }
-    }, 1000);
+    }, isCorrect && showLottie ? 3000 : 1000);
   };
 
   const handleTimeUp = () => {
@@ -113,8 +137,14 @@ const GameScreen: React.FC<Props> = ({ onGameOver, onScoreUpdate, allQuestions }
               <Card.Title as="h2" className="my-4">{question.question}</Card.Title>
               <Row xs={1} md={2} className="g-3">
                 {question.options.map((option, index) => (
-                  <Col key={index}>
+                  <Col key={index} style={{ position: 'relative' }}>
+                    {showLottie && option === question.correctAnswer && (
+                      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 10 }}>
+                        <Lottie options={defaultOptions} height="100%" width="100%" />
+                      </div>
+                    )}
                     <Button
+                      ref={option === question.correctAnswer ? correctButtonRef : null}
                       className={`answer-btn w-100 p-3 ${selectedAnswer === option ? (option === question.correctAnswer ? 'correct' : 'incorrect') : ''}`}
                       variant={getButtonVariant(option)}
                       onClick={() => handleAnswer(option)}
