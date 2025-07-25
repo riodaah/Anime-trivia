@@ -1,1 +1,1 @@
-fix: Preload wallpaper images to prevent flickering
+fix: Loading screen now covers the entire page
