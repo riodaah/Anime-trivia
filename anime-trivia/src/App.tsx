@@ -48,6 +48,11 @@ function App() {
   const [currentWallpaperIndex, setCurrentWallpaperIndex] = useState(0);
 
   useEffect(() => {
+    // Precargar imágenes
+    wallpapers.forEach(image => {
+      new Image().src = image;
+    });
+
     if (!loadingQuestions) {
       document.body.classList.add('body-background');
       const interval = setInterval(() => {
@@ -57,7 +62,7 @@ function App() {
     } else {
       document.body.classList.remove('body-background');
     }
-  }, [loadingQuestions, wallpapers.length]);
+  }, [loadingQuestions, wallpapers]);
 
   useEffect(() => {
     document.body.style.backgroundImage = `url(${wallpapers[currentWallpaperIndex]})`;
