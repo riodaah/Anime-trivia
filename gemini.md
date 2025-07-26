@@ -10,7 +10,9 @@ El proyecto sigue una estructura típica de una aplicación React, con los compo
 C:/Users/damor/Desktop/juego de trivia/anime-trivia/
 ├───public/
 │   ├───index.html
-│   └───questions.json (posiblemente obsoleto o fallback)
+│   ├───questions.json (posiblemente obsoleto o fallback)
+│   ├───sitemap.xml (Mapa del sitio para SEO)
+│   └───favicon.png (Favicon y imagen de vista previa para redes sociales)
 ├───src/
 │   ├───App.css
 │   ├───App.tsx (Componente principal)
@@ -22,7 +24,7 @@ C:/Users/damor/Desktop/juego de trivia/anime-trivia/
 │   │   ├───GuessCharacterScreen.tsx (Componente adicional/en desarrollo)
 │   │   ├───Leaderboard.tsx (Tabla de posiciones)
 │   │   ├───LoadingScreen.tsx (Pantalla de carga)
-│   │   ├───StartScreen.tsx (Pantalla de inicio)
+│   │   └───StartScreen.tsx (Pantalla de inicio)
 │   │   └───Timer.tsx (Temporizador)
 │   ├───Images/ (Activos de imagen)
 │   ├───Lotties/ (Archivos de animación Lottie)
@@ -90,8 +92,18 @@ Este script de Node.js (`uploadQuestions.js`) se utiliza para cargar preguntas d
 
 Este componente parece ser una característica separada o en desarrollo que no está integrada en el flujo principal del juego de trivia. Permite a los usuarios adivinar el nombre de un personaje de anime a partir de una imagen. Tiene su propia lógica de juego y manejo de intentos.
 
+## Mejoras Recientes
+
+Se han implementado las siguientes mejoras y correcciones:
+
+*   **Transición Suave de Fondos de Pantalla**: Los fondos de pantalla ahora cambian cada 10 segundos con un efecto de transición suave, eliminando el parpadeo.
+*   **Precarga de Imágenes**: Las imágenes de fondo se precargan para asegurar una experiencia visual fluida sin interrupciones.
+*   **Pantalla de Carga Optimizada**: La pantalla de carga inicial ahora cubre toda la pantalla, proporcionando un fondo sólido y centrando la animación Lottie para una mejor experiencia de usuario.
+*   **Metadatos para Redes Sociales y Favicon**: Se han actualizado las etiquetas meta en `index.html` para asegurar que la imagen de vista previa (`favicon.png`) y el favicon de la pestaña del navegador se muestren correctamente al compartir el enlace en redes sociales o al abrir la página.
+*   **Sitemap XML**: Se ha generado y desplegado un `sitemap.xml` para mejorar la indexación del sitio por parte de los motores de búsqueda.
+
 ## Estado del Proyecto y Despliegue
 
-*   **Control de Versiones**: El proyecto está bajo control de versiones con Git. El último commit es "feat: Cambia el texto del botón de inicio a 'Jugar'". Hay cambios locales sin commitear y archivos sin seguimiento.
-*   **Construcción (Build)**: La aplicación se puede construir exitosamente utilizando `npm run build`. Se generó una advertencia de ESLint en `src/components/GameScreen.tsx` sobre una dependencia faltante en un `useEffect`.
-*   **Despliegue a Firebase**: La aplicación se puede desplegar a Firebase Hosting utilizando `npm run deploy`. La URL de despliegue es `https://anime-trivia-a7bb7.web.app`.
+*   **Control de Versiones**: El proyecto está bajo control de versiones con Git.
+*   **Construcción (Build)**: La aplicación se puede construir exitosamente utilizando `npm run build`.
+*   **Despliegue a Firebase**: La aplicación se puede desplegar a Firebase Hosting utilizando `npm run deploy`. La URL de despliegue principal es `https://anime-trivia-a7bb7.web.app`, y el dominio personalizado es `https://luffysunny.com`.
