@@ -68,7 +68,40 @@ const db = admin.firestore();
 const app = express();
 
 app.use(cors());
-app.use(express.json({ limit: '1mb' }));
+
+// Middleware para arreglar JSON malformado antes de parsearlo
+app.use(express.text({ type: 'application/json', limit: '1mb' }));
+app.use((req, _res, next) => {
+  if (req.body && typeof req.body === 'string') {
+    try {
+      // Intentar parsear normalmente primero
+      req.body = JSON.parse(req.body);
+      next();
+    } catch (error) {
+      // Si falla, intentar arreglar el JSON
+      console.log('⚠️ JSON malformado detectado, intentando arreglar...');
+      try {
+        let fixedJson = req.body;
+        
+        // Arreglar el campo tags sin comillas: "tags":valor, -> "tags": "valor",
+        fixedJson = fixedJson.replace(/"tags":([^",\n\r}]+),/g, '"tags": "$1",');
+        
+        // Arreglar otros campos sin comillas si existen
+        fixedJson = fixedJson.replace(/"(\w+)":([^",\n\r{}[\]]+),/g, '"$1": "$2",');
+        
+        console.log('✅ JSON arreglado exitosamente');
+        req.body = JSON.parse(fixedJson);
+        next();
+      } catch (fixError) {
+        console.error('❌ No se pudo arreglar el JSON:', fixError);
+        req.body = {};
+        next();
+      }
+    }
+  } else {
+    next();
+  }
+});
 
 // Middleware de logging para todas las peticiones
 app.use((req, _res, next) => {
