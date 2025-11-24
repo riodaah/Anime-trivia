@@ -44,3 +44,4 @@ const Timer: React.FC<Props> = ({ onTimeUp, timerKey }) => {
 
 export default Timer;
 
+

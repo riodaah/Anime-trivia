@@ -16,13 +16,9 @@ export default function RankingPage() {
     const fetchLeaderboard = async () => {
       setLoading(true);
       try {
-        const leaderboardFilters: LeaderboardFilters = {
-          period: filters.period,
-        };
-        if (filters.anime && filters.anime !== 'all') {
-          leaderboardFilters.anime = filters.anime;
-        }
-        const data = await getLeaderboard(leaderboardFilters);
+        const anime = filters.anime && filters.anime !== 'all' ? filters.anime : 'all';
+        const period = filters.period || 'global';
+        const data = await getLeaderboard(anime, period, 100);
         setEntries(data);
       } catch (error) {
         console.error('Error fetching leaderboard:', error);
@@ -110,8 +106,6 @@ export default function RankingPage() {
                 <tr className="border-b border-gray-700">
                   <th className="text-left py-4 px-4 text-gray-400">Pos</th>
                   <th className="text-left py-4 px-4 text-gray-400">Nickname</th>
-                  <th className="text-left py-4 px-4 text-gray-400">País</th>
-                  <th className="text-left py-4 px-4 text-gray-400">Anime</th>
                   <th className="text-right py-4 px-4 text-gray-400">Puntaje</th>
                   <th className="text-right py-4 px-4 text-gray-400">Fecha</th>
                 </tr>
@@ -130,8 +124,6 @@ export default function RankingPage() {
                       <span className="text-gray-400">#{index + 1}</span>
                     </td>
                     <td className="py-4 px-4 font-medium">{entry.nickname}</td>
-                    <td className="py-4 px-4 text-gray-400">{entry.country || 'N/A'}</td>
-                    <td className="py-4 px-4 text-gray-400">{entry.anime || 'N/A'}</td>
                     <td className="py-4 px-4 text-right font-bold text-gradient">{entry.score}</td>
                     <td className="py-4 px-4 text-right text-gray-400 text-sm">
                       {formatDate(entry.timestamp || entry.createdAt)}

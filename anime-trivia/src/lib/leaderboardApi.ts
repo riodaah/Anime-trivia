@@ -18,47 +18,57 @@ export interface LeaderboardFilters {
   limit?: number;
 }
 
-export const getLeaderboard = async (filters: LeaderboardFilters = {}): Promise<LeaderboardEntry[]> => {
+// Función compatible con la firma antigua (anime, period, limit)
+export const getLeaderboard = async (
+  anime: string = 'all',
+  period: 'global' | 'month' = 'global',
+  limitCount: number = 100
+): Promise<LeaderboardEntry[]> => {
   try {
-    let q = query(collection(db, 'leaderboard'), orderBy('score', 'desc'));
+    console.log('Fetching leaderboard from Firestore...', { anime, period, limitCount });
+    
+    let q = query(collection(db, 'scores'), orderBy('score', 'desc'));
 
     // Filtrar por período
-    if (filters.period === 'month') {
+    if (period === 'month') {
       const oneMonthAgo = new Date();
       oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
       q = query(
-        collection(db, 'leaderboard'),
+        collection(db, 'scores'),
         where('timestamp', '>=', Timestamp.fromDate(oneMonthAgo)),
+        orderBy('timestamp', 'desc'),
         orderBy('score', 'desc')
       );
     }
 
-    // Filtrar por anime
-    if (filters.anime) {
+    // Filtrar por anime (si no es 'all' o 'Todos')
+    if (anime && anime !== 'all' && anime !== 'Todos') {
       q = query(
-        collection(db, 'leaderboard'),
-        where('anime', '==', filters.anime),
+        collection(db, 'scores'),
+        where('anime', '==', anime),
         orderBy('score', 'desc')
       );
     }
 
     // Limitar resultados
-    if (filters.limit) {
-      q = query(q, limit(filters.limit));
-    } else {
-      q = query(q, limit(100));
-    }
+    q = query(q, limit(limitCount));
 
     const querySnapshot = await getDocs(q);
     const entries: LeaderboardEntry[] = [];
 
     querySnapshot.forEach((doc) => {
+      const data = doc.data();
       entries.push({
         id: doc.id,
-        ...doc.data(),
+        nickname: data.playerName || data.nickname || 'Anónimo',
+        score: data.score || 0,
+        country: data.country || '',
+        anime: data.anime || '',
+        timestamp: data.timestamp || data.createdAt,
       } as LeaderboardEntry);
     });
 
+    console.log(`Found ${entries.length} entries in leaderboard`);
     return entries;
   } catch (error) {
     console.error('Error fetching leaderboard:', error);
@@ -95,7 +105,7 @@ export const submitScore = async (payload: {
 
 export const getTopScores = async (count: number = 5): Promise<LeaderboardEntry[]> => {
   try {
-    const entries = await getLeaderboard({ limit: count });
+    const entries = await getLeaderboard('all', 'global', count);
     return entries;
   } catch (error) {
     console.error('Error fetching top scores:', error);

@@ -1,3 +1,10 @@
-# https://www.robotstxt.org/robotstxt.html
+# robots.txt for LuffySunny - Trivia de Anime
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://luffysunny.com/sitemap.xml
+
+# Crawl-delay (optional, helps avoid overloading server)
+Crawl-delay: 1

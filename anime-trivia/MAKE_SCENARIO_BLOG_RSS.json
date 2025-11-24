@@ -1,0 +1,225 @@
+{
+  "name": "📰 Auto-Publicar Noticias Anime desde RSS",
+  "flow": [
+    {
+      "id": 1,
+      "module": "rss:TriggerNewArticle",
+      "version": 4,
+      "parameters": {
+        "url": "https://rss.app/feeds/tkzvqcGwyEeIbRil.xml",
+        "maxResults": 1
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "id": 2,
+      "module": "openai-gpt-3:CreateCompletion",
+      "version": 1,
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "max_tokens": 2000,
+        "temperature": 0.7
+      },
+      "mapper": {
+        "messages": [
+          {
+            "role": "system",
+            "content": "Eres un redactor experto de contenido de anime. Escribe artículos informativos y entretenidos en español."
+          },
+          {
+            "role": "user",
+            "content": "Tengo esta noticia en japonés:\nTítulo: {{1.title}}\nDescripción: {{1.description}}\nLink: {{1.link}}\nImagen: {{1.enclosure.url}}\n\nTAREA:\n1. Traduce y adapta esta noticia al español\n2. Crea un artículo atractivo de 4-5 párrafos\n3. Añade contexto sobre el anime/manga mencionado\n4. Usa un tono casual y amigable\n5. Incluye emojis relevantes (🎬🔥⭐️🎮)\n6. Responde SOLO con un JSON válido con este formato exacto:\n\n{\n  \"title\": \"Título atractivo máximo 80 caracteres con emojis\",\n  \"slug\": \"titulo-url-friendly-sin-emojis-{{now}}\",\n  \"summary\": \"Resumen de 1-2 líneas que enganche al lector\",\n  \"content\": \"<h2>Introducción</h2><p>Párrafo 1...</p><h3>Subtítulo</h3><p>Párrafo 2...</p><p>Párrafo 3...</p><h3>Conclusión</h3><p>Párrafo final...</p>\",\n  \"coverImageUrl\": \"{{1.enclosure.url}}\",\n  \"tags\": [\"Anime\", \"Tag1\", \"Tag2\", \"Tag3\"]\n}\n\nREGLAS:\n- El content debe ser HTML válido con <h2>, <h3>, <p>, <strong>, <em>\n- NO uses comillas dobles dentro del JSON\n- El slug debe ser lowercase y usar guiones\n- Mínimo 400 palabras en el content\n- Si no hay imagen, usa: https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800"
+          }
+        ]
+      },
+      "metadata": {
+        "designer": {
+          "x": 300,
+          "y": 0
+        },
+        "restore": {
+          "parameters": {
+            "model": {
+              "label": "gpt-4o-mini"
+            }
+          }
+        },
+        "expect": [
+          {
+            "name": "messages",
+            "type": "array",
+            "label": "Messages",
+            "required": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "module": "json:ParseJSON",
+      "version": 1,
+      "parameters": {},
+      "mapper": {
+        "json": "{{2.choices[].message.content}}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0
+        },
+        "restore": {},
+        "expect": [
+          {
+            "name": "json",
+            "type": "text",
+            "label": "JSON string",
+            "required": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": false,
+        "useQuerystring": false,
+        "parseResponse": true
+      },
+      "mapper": {
+        "url": "https://anime-trivia-production.up.railway.app/webhooks/anime-news",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "name": "Authorization",
+            "value": "Bearer {{WEBHOOK_SECRET}}"
+          }
+        ],
+        "qs": [],
+        "bodyType": "raw",
+        "body": "{\n  \"title\": \"{{3.title}}\",\n  \"slug\": \"{{3.slug}}-{{formatDate(now; \"YYYY-MM-DD-HHmm\")}}\",\n  \"summary\": \"{{3.summary}}\",\n  \"content\": {{toJSON(3.content)}},\n  \"coverImageUrl\": \"{{3.coverImageUrl}}\",\n  \"tags\": {{toJSON(3.tags)}},\n  \"sourceUrl\": \"{{1.link}}\"\n}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 900,
+          "y": 0
+        },
+        "restore": {
+          "expect": {
+            "method": {
+              "label": "POST"
+            },
+            "bodyType": {
+              "label": "Raw"
+            }
+          }
+        },
+        "expect": [
+          {
+            "name": "url",
+            "type": "url",
+            "label": "URL",
+            "required": true
+          },
+          {
+            "name": "method",
+            "type": "select",
+            "label": "Method",
+            "required": true,
+            "validate": {
+              "enum": [
+                "GET",
+                "POST",
+                "PUT",
+                "PATCH",
+                "DELETE",
+                "OPTIONS"
+              ]
+            }
+          },
+          {
+            "name": "headers",
+            "spec": [
+              {
+                "name": "name",
+                "type": "text",
+                "label": "Name",
+                "required": true
+              },
+              {
+                "name": "value",
+                "type": "text",
+                "label": "Value"
+              }
+            ],
+            "type": "array",
+            "label": "Headers"
+          },
+          {
+            "name": "qs",
+            "spec": [
+              {
+                "name": "name",
+                "type": "text",
+                "label": "Name",
+                "required": true
+              },
+              {
+                "name": "value",
+                "type": "text",
+                "label": "Value"
+              }
+            ],
+            "type": "array",
+            "label": "Query String"
+          },
+          {
+            "name": "bodyType",
+            "type": "select",
+            "label": "Body type",
+            "validate": {
+              "enum": [
+                "raw",
+                "application/x-www-form-urlencoded",
+                "multipart/form-data"
+              ]
+            }
+          },
+          {
+            "name": "body",
+            "type": "text",
+            "label": "Request content"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": false,
+      "sequential": false,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false
+    },
+    "designer": {
+      "orphans": []
+    },
+    "zone": "us2.make.com"
+  }
+}
+
