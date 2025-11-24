@@ -1,0 +1,9 @@
+ERROR in src/components/Leaderboard.tsx:90:13
+TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+    88 |             >
+    89 |               Siguiente
+  > 90 |             >
+       |             ^
+    91 |               Siguiente
+    92 |             </Button>
+    93 |           </div>

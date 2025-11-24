@@ -1,5 +1,0 @@
-ERROR
-Failed to connect to MetaMask
-s: Failed to connect to MetaMask
-    at Object.connect (chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/inpage.js:1:21277)
-    at async o (chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/inpage.js:1:19192)
