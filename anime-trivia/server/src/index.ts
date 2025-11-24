@@ -107,7 +107,7 @@ app.post('/webhooks/anime-news', async (req, res) => {
     console.log('✅ Autorización válida');
 
     // Extraer campos del body
-    const {
+    let {
       title,
       slug,
       summary,
@@ -119,15 +119,36 @@ app.post('/webhooks/anime-news', async (req, res) => {
       sourceUrl,
     } = req.body;
 
-    console.log('📝 Campos recibidos:');
+    console.log('📝 Campos recibidos (raw):');
     console.log('  - title:', title ? '✅' : '❌', title);
     console.log('  - slug:', slug ? '✅' : '❌', slug);
     console.log('  - summary:', summary ? '✅' : '❌', summary);
     console.log('  - coverImageUrl:', coverImageUrl ? '✅' : '❌', coverImageUrl);
     console.log('  - content:', content ? '✅' : '❌', content ? `${content.substring(0, 50)}...` : 'null');
     console.log('  - contentMarkdown:', contentMarkdown ? '✅' : '❌');
-    console.log('  - tags:', tags);
+    console.log('  - tags (raw):', tags, typeof tags);
     console.log('  - sourceUrl:', sourceUrl);
+
+    // 🔧 Normalizar tags: aceptar string o array
+    if (tags) {
+      if (typeof tags === 'string') {
+        // Si es string, convertir a array separando por comas
+        tags = tags.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0);
+        console.log('🔄 Tags convertidos de string a array:', tags);
+      } else if (Array.isArray(tags)) {
+        // Si ya es array, solo limpiar
+        tags = tags.map(tag => String(tag).trim()).filter(tag => tag.length > 0);
+        console.log('✅ Tags ya es array:', tags);
+      } else {
+        // Si no es ni string ni array, convertir a array vacío
+        console.log('⚠️ Tags en formato inesperado, usando array vacío');
+        tags = [];
+      }
+    } else {
+      tags = [];
+    }
+
+    console.log('📝 Tags finales:', tags);
 
     // Validar campos obligatorios
     if (!title || !slug || !summary || !coverImageUrl) {
@@ -149,6 +170,10 @@ app.post('/webhooks/anime-news', async (req, res) => {
     }
     console.log('✅ Todos los campos obligatorios presentes');
 
+    // 🔧 Normalizar content: aceptar content o contentMarkdown
+    let finalContent = content || contentMarkdown || null;
+    console.log('📄 Content final:', finalContent ? `${finalContent.substring(0, 50)}...` : 'null');
+
     // Verificar si el slug ya existe
     console.log('🔍 Verificando si el slug ya existe...');
     const existing = await db.collection('posts').where('slug', '==', slug).get();
@@ -163,10 +188,9 @@ app.post('/webhooks/anime-news', async (req, res) => {
       title,
       slug,
       summary,
-      contentMarkdown: contentMarkdown || null,
-      content: content || null,
+      content: finalContent,
       coverImageUrl,
-      tags: tags || [],
+      tags: tags,
       publishedAt: publishedAt || new Date().toISOString(),
       sourceUrl: sourceUrl || null,
       createdAt: admin.firestore.FieldValue.serverTimestamp(),
