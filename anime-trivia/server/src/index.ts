@@ -4,6 +4,7 @@ import cors from 'cors';
 import admin from 'firebase-admin';
 
 const {
+  FIREBASE_SERVICE_ACCOUNT,
   FIREBASE_PROJECT_ID,
   FIREBASE_CLIENT_EMAIL,
   FIREBASE_PRIVATE_KEY,
@@ -11,20 +12,56 @@ const {
   PORT = 4000,
 } = process.env;
 
-if (!FIREBASE_PROJECT_ID || !FIREBASE_CLIENT_EMAIL || !FIREBASE_PRIVATE_KEY) {
-  throw new Error(
-    'Faltan variables de entorno de Firebase. Define FIREBASE_PROJECT_ID, FIREBASE_CLIENT_EMAIL y FIREBASE_PRIVATE_KEY.'
-  );
+// Opción 1: Usar service account JSON completo (más fácil)
+if (FIREBASE_SERVICE_ACCOUNT) {
+  try {
+    const serviceAccount = JSON.parse(FIREBASE_SERVICE_ACCOUNT);
+    if (!admin.apps.length) {
+      admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount),
+      });
+    }
+    console.log('✅ Firebase inicializado con Service Account JSON');
+  } catch (error) {
+    console.error('❌ Error parseando FIREBASE_SERVICE_ACCOUNT:', error);
+    throw new Error('FIREBASE_SERVICE_ACCOUNT no es un JSON válido');
+  }
 }
-
-if (!admin.apps.length) {
-  admin.initializeApp({
-    credential: admin.credential.cert({
-      projectId: FIREBASE_PROJECT_ID,
-      clientEmail: FIREBASE_CLIENT_EMAIL,
-      privateKey: FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-    }),
-  });
+// Opción 2: Usar variables individuales
+else if (FIREBASE_PROJECT_ID && FIREBASE_CLIENT_EMAIL && FIREBASE_PRIVATE_KEY) {
+  if (!admin.apps.length) {
+    try {
+      // Intentar diferentes formas de procesar la clave privada
+      let privateKey = FIREBASE_PRIVATE_KEY;
+      
+      // Si tiene \\n literales, reemplazarlos con saltos de línea reales
+      if (privateKey.includes('\\n')) {
+        privateKey = privateKey.replace(/\\n/g, '\n');
+      }
+      
+      console.log('🔑 Inicializando Firebase con credenciales individuales...');
+      console.log('📝 Project ID:', FIREBASE_PROJECT_ID);
+      console.log('📧 Client Email:', FIREBASE_CLIENT_EMAIL);
+      console.log('🔐 Private Key length:', privateKey.length);
+      console.log('🔐 Private Key starts with:', privateKey.substring(0, 50));
+      
+      admin.initializeApp({
+        credential: admin.credential.cert({
+          projectId: FIREBASE_PROJECT_ID,
+          clientEmail: FIREBASE_CLIENT_EMAIL,
+          privateKey: privateKey,
+        }),
+      });
+      console.log('✅ Firebase inicializado con credenciales individuales');
+    } catch (error) {
+      console.error('❌ Error inicializando Firebase:', error);
+      throw error;
+    }
+  }
+} else {
+  throw new Error(
+    'Faltan variables de entorno de Firebase. Define FIREBASE_SERVICE_ACCOUNT (JSON completo) O (FIREBASE_PROJECT_ID, FIREBASE_CLIENT_EMAIL y FIREBASE_PRIVATE_KEY).'
+  );
 }
 
 const db = admin.firestore();
