@@ -218,9 +218,7 @@ export default function BlogPostPage() {
             </div>
 
             <div className="prose prose-invert max-w-none prose-headings:text-white prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-p:text-gray-300 prose-p:leading-relaxed prose-a:text-blue-400 prose-a:no-underline hover:prose-a:text-blue-300 prose-strong:text-white prose-img:rounded-lg prose-img:shadow-lg">
-              {post.content ? (
-                <div dangerouslySetInnerHTML={{ __html: post.content }} />
-              ) : post.contentMarkdown ? (
+              {(post.content || post.contentMarkdown) ? (
                 <ReactMarkdown
                   rehypePlugins={[rehypeRaw, rehypeSanitize]}
                   components={{
@@ -248,7 +246,7 @@ export default function BlogPostPage() {
                     ),
                   }}
                 >
-                  {post.contentMarkdown}
+                  {post.content || post.contentMarkdown}
                 </ReactMarkdown>
               ) : (
                 <p className="text-gray-300">{post.summary}</p>

@@ -191,3 +191,4 @@ Si quieres ver exactamente qué está enviando Make.com antes de arreglarlo:
 
 ¡Haz estos cambios y vuelve a probar! Ahora con los logs detallados sabremos exactamente qué está pasando. 🎯✨
 
+

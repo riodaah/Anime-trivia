@@ -270,3 +270,4 @@ railway logs --follow | grep "SUBMIT SCORE"
 
 ¡Con estos logs súper detallados sabremos exactamente qué está fallando! 🔍✨
 
+

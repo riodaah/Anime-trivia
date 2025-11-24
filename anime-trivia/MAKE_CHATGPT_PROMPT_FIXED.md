@@ -134,3 +134,4 @@ Esto pone "articulo" como fallback si el slug está vacío.
 
 ¡Prueba con este prompt corregido y avísame si funciona! 🚀
 
+
