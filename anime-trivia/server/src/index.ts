@@ -69,6 +69,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json({ limit: '1mb' }));
+app.use(express.urlencoded({ extended: true, limit: '1mb' }));
 
 // Middleware de logging para todas las peticiones
 app.use((req, _res, next) => {
