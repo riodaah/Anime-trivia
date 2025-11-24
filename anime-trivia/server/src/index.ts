@@ -68,47 +68,26 @@ const db = admin.firestore();
 const app = express();
 
 app.use(cors());
-
-// Middleware para arreglar JSON malformado antes de parsearlo
-app.use(express.text({ type: 'application/json', limit: '1mb' }));
-app.use((req, _res, next) => {
-  if (req.body && typeof req.body === 'string') {
-    try {
-      // Intentar parsear normalmente primero
-      req.body = JSON.parse(req.body);
-      next();
-    } catch (error) {
-      // Si falla, intentar arreglar el JSON
-      console.log('⚠️ JSON malformado detectado, intentando arreglar...');
-      try {
-        let fixedJson = req.body;
-        
-        // Arreglar el campo tags sin comillas: "tags":valor, -> "tags": "valor",
-        fixedJson = fixedJson.replace(/"tags":([^",\n\r}]+),/g, '"tags": "$1",');
-        
-        // Arreglar otros campos sin comillas si existen
-        fixedJson = fixedJson.replace(/"(\w+)":([^",\n\r{}[\]]+),/g, '"$1": "$2",');
-        
-        console.log('✅ JSON arreglado exitosamente');
-        req.body = JSON.parse(fixedJson);
-        next();
-      } catch (fixError) {
-        console.error('❌ No se pudo arreglar el JSON:', fixError);
-        req.body = {};
-        next();
-      }
-    }
-  } else {
-    next();
-  }
-});
+app.use(express.json({ limit: '1mb' }));
 
 // Middleware de logging para todas las peticiones
 app.use((req, _res, next) => {
   console.log('\n🔵 ===== NUEVA PETICIÓN =====');
   console.log(`📍 ${req.method} ${req.path}`);
   console.log('📋 Headers:', JSON.stringify(req.headers, null, 2));
-  console.log('📦 Body:', JSON.stringify(req.body, null, 2));
+  console.log('📦 Body (raw):', JSON.stringify(req.body, null, 2));
+  
+  // Arreglar body si tiene estructura anidada incorrecta
+  if (req.body && typeof req.body === 'object' && req.body.error === undefined) {
+    // A veces el body viene anidado en una propiedad extra
+    const bodyKeys = Object.keys(req.body);
+    if (bodyKeys.length === 1 && typeof req.body[bodyKeys[0]] === 'object') {
+      console.log('🔄 Desenredando body anidado...');
+      req.body = req.body[bodyKeys[0]];
+    }
+  }
+  
+  console.log('📦 Body (procesado):', JSON.stringify(req.body, null, 2));
   console.log('🔵 ===========================\n');
   next();
 });
