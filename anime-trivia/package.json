@@ -11,13 +11,16 @@
     "deploy:all": "npm run build && cd functions && npm run build && cd .. && firebase deploy"
   },
   "dependencies": {
+    "firebase": "^11.10.0",
+    "framer-motion": "^11.11.17",
+    "lucide-react": "^0.468.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^6.28.0",
-    "framer-motion": "^11.11.17",
-    "firebase": "^11.10.0",
     "react-lottie": "^1.2.10",
-    "lucide-react": "^0.468.0"
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^6.28.0",
+    "rehype-raw": "^7.0.0",
+    "rehype-sanitize": "^6.0.0"
   },
   "devDependencies": {
     "@types/react": "^19.1.8",

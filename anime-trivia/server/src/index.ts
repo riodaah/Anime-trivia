@@ -185,6 +185,15 @@ app.post('/webhooks/anime-news', async (req, res) => {
 
     // 🔧 Normalizar content: aceptar content o contentMarkdown
     let finalContent = content || contentMarkdown || null;
+    
+    // Convertir \n literales a saltos de línea reales
+    if (finalContent && typeof finalContent === 'string') {
+      finalContent = finalContent.replace(/\\n/g, '\n');
+      finalContent = finalContent.replace(/\\t/g, '\t');
+      finalContent = finalContent.replace(/\\"/g, '"');
+      console.log('🔄 Content procesado con saltos de línea reales');
+    }
+    
     console.log('📄 Content final:', finalContent ? `${finalContent.substring(0, 50)}...` : 'null');
 
     // Verificar si el slug ya existe
