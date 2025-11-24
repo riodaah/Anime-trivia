@@ -68,29 +68,171 @@ const db = admin.firestore();
 const app = express();
 
 app.use(cors());
-app.use(express.json({ limit: '1mb' }));
-app.use(express.urlencoded({ extended: true, limit: '1mb' }));
 
-// Middleware de logging para todas las peticiones
-app.use((req, _res, next) => {
-  console.log('\n🔵 ===== NUEVA PETICIÓN =====');
-  console.log(`📍 ${req.method} ${req.path}`);
-  console.log('📋 Headers:', JSON.stringify(req.headers, null, 2));
-  console.log('📦 Body (raw):', JSON.stringify(req.body, null, 2));
-  
-  // Arreglar body si tiene estructura anidada incorrecta
-  if (req.body && typeof req.body === 'object' && req.body.error === undefined) {
-    // A veces el body viene anidado en una propiedad extra
-    const bodyKeys = Object.keys(req.body);
-    if (bodyKeys.length === 1 && typeof req.body[bodyKeys[0]] === 'object') {
-      console.log('🔄 Desenredando body anidado...');
-      req.body = req.body[bodyKeys[0]];
-    }
+// Middleware ROBUSTO para parsear JSON malformado
+app.use((req, res, next) => {
+  if (req.method !== 'POST' && req.method !== 'PUT' && req.method !== 'PATCH') {
+    return next();
   }
+
+  let rawBody = '';
   
-  console.log('📦 Body (procesado):', JSON.stringify(req.body, null, 2));
-  console.log('🔵 ===========================\n');
-  next();
+  req.on('data', chunk => {
+    rawBody += chunk.toString();
+  });
+
+  req.on('end', () => {
+    console.log('\n🔵 ===== NUEVA PETICIÓN =====');
+    console.log(`📍 ${req.method} ${req.path}`);
+    console.log('📋 Content-Type:', req.headers['content-type']);
+    console.log('📦 Raw Body (primeros 500 chars):', rawBody.substring(0, 500));
+
+    // Si no hay body, continuar
+    if (!rawBody || rawBody.trim() === '') {
+      req.body = {};
+      console.log('⚠️ Body vacío');
+      return next();
+    }
+
+    // Si es application/x-www-form-urlencoded
+    if (req.headers['content-type']?.includes('application/x-www-form-urlencoded')) {
+      try {
+        const params = new URLSearchParams(rawBody);
+        req.body = {};
+        for (const [key, value] of params) {
+          try {
+            req.body[key] = JSON.parse(value);
+          } catch {
+            req.body[key] = value;
+          }
+        }
+        console.log('✅ Body parseado desde form-urlencoded');
+        console.log('📦 Body final:', JSON.stringify(req.body, null, 2));
+        return next();
+      } catch (error) {
+        console.error('❌ Error parseando form-urlencoded:', error);
+        return res.status(400).json({ error: 'Form-urlencoded inválido' });
+      }
+    }
+
+    // Si es JSON, intentar parsearlo con múltiples estrategias
+    if (req.headers['content-type']?.includes('application/json')) {
+      let parsed = false;
+
+      // Estrategia 1: Parsear directamente
+      try {
+        req.body = JSON.parse(rawBody);
+        console.log('✅ JSON parseado correctamente (estrategia 1)');
+        parsed = true;
+      } catch (error1) {
+        console.warn('⚠️ Estrategia 1 falló, intentando arreglar JSON...');
+
+        // Estrategia 2: Arreglar comillas dobles mal escapadas
+        try {
+          let fixed = rawBody;
+
+          // Arreglar comillas dentro de valores de string (excepto las de la estructura JSON)
+          // Esto es complejo, así que usamos una estrategia: convertir \" a ' dentro de valores
+          fixed = fixed.replace(/"content"\s*:\s*"(.*?)"/gs, (match, content) => {
+            // Dentro del campo 'content', reemplazar \" con '
+            const fixedContent = content
+              .replace(/\\"/g, "'")  // \" → '
+              .replace(/(?<!\\)"/g, "'");  // " → ' (si no está escapada)
+            return `"content":"${fixedContent}"`;
+          });
+
+          // Lo mismo para 'contentMarkdown'
+          fixed = fixed.replace(/"contentMarkdown"\s*:\s*"(.*?)"/gs, (match, content) => {
+            const fixedContent = content
+              .replace(/\\"/g, "'")
+              .replace(/(?<!\\)"/g, "'");
+            return `"contentMarkdown":"${fixedContent}"`;
+          });
+
+          // Arreglar saltos de línea literales no escapados
+          fixed = fixed.replace(/"(content|contentMarkdown)"\s*:\s*"(.*?)"/gs, (match, field, content) => {
+            const fixedContent = content
+              .replace(/\n/g, '\\n')
+              .replace(/\r/g, '\\r')
+              .replace(/\t/g, '\\t');
+            return `"${field}":"${fixedContent}"`;
+          });
+
+          req.body = JSON.parse(fixed);
+          console.log('✅ JSON arreglado y parseado (estrategia 2)');
+          parsed = true;
+        } catch (error2) {
+          console.warn('⚠️ Estrategia 2 falló, intentando estrategia 3...');
+
+          // Estrategia 3: Reconstruir JSON desde cero
+          try {
+            // Extraer campos uno por uno con regex más robusta
+            const extractField = (fieldName: string, defaultValue: any = null) => {
+              const regex = new RegExp(`"${fieldName}"\\s*:\\s*"([^]*?)"(?=\\s*,|\\s*})`);
+              const match = rawBody.match(regex);
+              if (match) {
+                let value = match[1];
+                // Limpiar escapes incorrectos
+                value = value
+                  .replace(/\\n/g, '\n')
+                  .replace(/\\r/g, '\r')
+                  .replace(/\\t/g, '\t')
+                  .replace(/\\"/g, '"')
+                  .replace(/\\\\/g, '\\');
+                return value;
+              }
+              return defaultValue;
+            };
+
+            req.body = {
+              title: extractField('title', ''),
+              slug: extractField('slug', ''),
+              summary: extractField('summary', ''),
+              content: extractField('content') || extractField('contentMarkdown', ''),
+              contentMarkdown: extractField('contentMarkdown') || extractField('content', ''),
+              coverImageUrl: extractField('coverImageUrl', ''),
+              tags: extractField('tags', ''),
+              sourceUrl: extractField('sourceUrl', ''),
+            };
+
+            console.log('✅ JSON reconstruido manualmente (estrategia 3)');
+            parsed = true;
+          } catch (error3) {
+            console.error('❌ Todas las estrategias fallaron');
+            console.error('Error 1:', error1);
+            console.error('Error 2:', error2);
+            console.error('Error 3:', error3);
+            return res.status(400).json({ 
+              error: 'JSON inválido o malformado',
+              details: 'No se pudo parsear el JSON con ninguna estrategia'
+            });
+          }
+        }
+      }
+
+      if (parsed) {
+        console.log('📦 Body final:', JSON.stringify(req.body, null, 2));
+        console.log('🔵 ===========================\n');
+        return next();
+      }
+    }
+
+    // Si no es JSON ni form-urlencoded, intentar como JSON de todos modos
+    try {
+      req.body = JSON.parse(rawBody);
+      console.log('✅ Body parseado como JSON (fallback)');
+      return next();
+    } catch {
+      req.body = { raw: rawBody };
+      console.log('⚠️ Body guardado como raw');
+      return next();
+    }
+  });
+
+  req.on('error', (error) => {
+    console.error('❌ Error leyendo body:', error);
+    res.status(400).json({ error: 'Error leyendo body' });
+  });
 });
 
 app.get('/health', (_req, res) => {
@@ -163,26 +305,6 @@ app.post('/webhooks/anime-news', async (req, res) => {
 
     console.log('📝 Tags finales:', tags);
 
-    // Validar campos obligatorios
-    if (!title || !slug || !summary || !coverImageUrl) {
-      console.error('❌ Faltan campos obligatorios:', {
-        title: !!title,
-        slug: !!slug,
-        summary: !!summary,
-        coverImageUrl: !!coverImageUrl,
-      });
-      return res.status(400).json({ 
-        error: 'Faltan campos obligatorios',
-        missing: {
-          title: !title,
-          slug: !slug,
-          summary: !summary,
-          coverImageUrl: !coverImageUrl,
-        }
-      });
-    }
-    console.log('✅ Todos los campos obligatorios presentes');
-
     // 🔧 Normalizar content: aceptar content o contentMarkdown
     let finalContent = content || contentMarkdown || null;
     
@@ -195,6 +317,27 @@ app.post('/webhooks/anime-news', async (req, res) => {
     }
     
     console.log('📄 Content final:', finalContent ? `${finalContent.substring(0, 50)}...` : 'null');
+
+    // Validar campos obligatorios
+    const missingFields = {
+      title: !title,
+      slug: !slug,
+      summary: !summary,
+      coverImageUrl: !coverImageUrl,
+      content: !finalContent,
+    };
+
+    const hasMissingFields = Object.values(missingFields).some(missing => missing);
+
+    if (hasMissingFields) {
+      console.error('❌ Faltan campos obligatorios:', missingFields);
+      return res.status(400).json({ 
+        error: 'Faltan campos obligatorios',
+        missing: missingFields,
+        help: 'Asegúrate de enviar: title, slug, summary, coverImageUrl y content (o contentMarkdown)'
+      });
+    }
+    console.log('✅ Todos los campos obligatorios presentes');
 
     // Verificar si el slug ya existe
     console.log('🔍 Verificando si el slug ya existe...');
