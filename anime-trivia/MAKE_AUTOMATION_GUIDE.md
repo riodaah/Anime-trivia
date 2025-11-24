@@ -47,36 +47,65 @@ Este escenario automáticamente:
 - **Max Tokens:** `2000`
 - **Temperature:** `0.7`
 
-#### Prompt (Copiar y pegar):
+#### Prompt OPTIMIZADO PARA SEO (Copiar y pegar):
 ```
-Eres un redactor de contenido de anime profesional. 
-
-Tengo esta noticia en japonés:
-Título: {{1.title}}
-Descripción: {{1.description}}
-Link: {{1.link}}
+Eres un experto redactor de blogs de anime con conocimientos de SEO.
 
 TAREA:
-1. Traduce y adapta esta noticia al español
-2. Crea un artículo atractivo y entretenido
-3. Agrega emojis relevantes
-4. Responde SOLO con un JSON válido con este formato exacto:
+Convierte esta noticia RSS en un artículo COMPLETO y OPTIMIZADO para SEO en español:
 
+TÍTULO RSS: {{1.title}}
+ENLACE: {{1.link}}
+DESCRIPCIÓN: {{1.description}}
+IMAGEN: {{1.enclosure.url}}
+
+REGLAS ESTRICTAS DE SEO:
+1. **Título:** 60-70 caracteres, incluye palabra clave principal (nombre del anime + tema)
+2. **Resumen:** 150-160 caracteres, con keyword principal y secundaria
+3. **Contenido:** Mínimo 800 palabras, máximo 1500 palabras
+4. **Keywords:**
+   - Principal: [nombre del anime + tema específico]
+   - Secundarias: anime, manga, noticias anime, otaku, streaming, Japón
+   - Long-tail: [variaciones naturales]
+5. **Estructura:**
+   - 1 título H1 (será el title del JSON)
+   - 3-5 subtítulos H2
+   - 2-4 subtítulos H3
+   - Párrafos de 3-5 líneas máximo
+   - Listas con viñetas o numeradas cuando sea apropiado
+   - Negritas en conceptos clave
+   - Cursivas en títulos de animes/películas
+6. **Densidad de Keywords:** 1-2% (keyword principal aparece 8-15 veces en 1000 palabras de forma natural)
+7. **Enlaces:** Menciona fuente original si es relevante
+8. **Tono:** Entusiasta, informativo, accesible para fans del anime
+
+FORMATO DE SALIDA (JSON válido):
 {
-  "title": "Título llamativo en español (máximo 80 caracteres)",
-  "slug": "titulo-en-minusculas-con-guiones",
-  "summary": "Resumen corto y atractivo de 1-2 líneas",
-  "content": "<h2>Subtítulo</h2><p>Contenido del artículo en HTML con varios párrafos. Usa <strong>, <em>, <h3>, etc.</p>",
-  "coverImageUrl": "{{1.enclosure.url}}",
-  "tags": ["Tag1", "Tag2", "Tag3"]
+  "title": "Título SEO optimizado de 60-70 caracteres",
+  "slug": "titulo-seo-optimizado-minusculas-sin-tildes",
+  "summary": "Resumen de 150-160 caracteres con keyword principal y gancho emocional que invite a hacer clic",
+  "contentMarkdown": "# Título H1 con Keyword Principal\n\n![Alt text descriptivo con keyword]({{if(empty(1.enclosure.url); "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800"; 1.enclosure.url)}})\n\n**Lead paragraph de 2-3 líneas con keyword principal que resuma el artículo**...\n\n## Subtítulo H2 Relevante\n\nContenido del párrafo con información valiosa...\n\n## Otro Subtítulo H2\n\nMás contenido...\n\n### Subtítulo H3 si es necesario\n\nDetalles adicionales...\n\n## Conclusión\n\nPárrafo final con llamado a la acción y keyword principal.",
+  "coverImageUrl": "{{if(empty(1.enclosure.url); "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800"; 1.enclosure.url)}}",
+  "tags": "tag1, tag2, tag3, tag4, tag5"
 }
 
-IMPORTANTE:
-- El slug debe ser único, usar el título + fecha
-- El content debe ser HTML válido
-- Incluye al menos 3 párrafos
-- Añade contexto y análisis
-- Si no hay imagen en {{1.enclosure.url}}, usa: "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800"
+IMPORTANTE PARA MARKDOWN:
+- Usa \n para saltos de línea (un solo backslash)
+- Usa \n\n para separar párrafos
+- NO uses \\n (doble backslash)
+- NO uses comillas dentro del contenido, usa comillas simples si es necesario
+
+TAGS:
+- Debe incluir: nombre del anime, género, estudio de animación, palabras clave del tema
+- Formato: texto plano separado por comas (NO array)
+- Ejemplo: "zombieland saga, franchouchou, anime, japon, 4dx, eventos, musica"
+
+SLUG:
+- Minúsculas, sin tildes, sin caracteres especiales
+- Usa guiones para separar palabras
+- Ejemplo: "zombieland-saga-evento-4dx-imari"
+
+Genera el artículo ahora.
 ```
 
 **¿Qué hace?** ChatGPT convierte la noticia japonesa en un artículo en español con formato JSON.
@@ -125,15 +154,17 @@ Agregar 2 headers:
 Seleccionar **Raw** y pegar:
 ```json
 {
-  "title": "{{3.title}}",
-  "slug": "{{3.slug}}-{{formatDate(now; "YYYY-MM-DD-HHmm")}}",
-  "summary": "{{3.summary}}",
-  "content": "{{3.content}}",
-  "coverImageUrl": "{{3.coverImageUrl}}",
-  "tags": {{3.tags}},
-  "sourceUrl": "{{1.link}}"
+  "title": "{{17.title}}",
+  "slug": "{{17.slug}}-{{formatDate(now; "YYYY-MM-DD-HHmm")}}",
+  "summary": "{{17.summary}}",
+  "content": "{{17.contentMarkdown}}",
+  "coverImageUrl": "{{17.coverImageUrl}}",
+  "tags": "{{17.tags}}",
+  "sourceUrl": "{{3.link}}"
 }
 ```
+
+**Nota importante sobre los números:** `{{17.xxx}}` es el número del módulo de ChatGPT en tu escenario. Si es diferente, ajústalo. `{{3.link}}` es del módulo RSS (usualmente el primero).
 
 **Nota:** El `formatDate(now; "YYYY-MM-DD-HHmm")` agrega timestamp al slug para hacerlo único.
 

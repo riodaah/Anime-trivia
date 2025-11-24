@@ -3,8 +3,11 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-# Sitemap location
-Sitemap: https://luffysunny.com/sitemap.xml
+# Sitemap dinámico (se actualiza automáticamente con nuevos posts)
+Sitemap: https://anime-trivia-production.up.railway.app/sitemap.xml
+
+# Sitemap estático (como respaldo)
+Sitemap: https://anime-trivia-a7bb7.web.app/sitemap.xml
 
 # Crawl-delay (optional, helps avoid overloading server)
 Crawl-delay: 1

@@ -28,6 +28,109 @@ export default function BlogPostPage() {
     }
   }, [slug]);
 
+  // SEO: Actualizar meta tags dinámicamente
+  useEffect(() => {
+    if (post) {
+      // Title
+      document.title = `${post.title} | LuffySunny - Blog de Anime`;
+      
+      // Meta description
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) {
+        metaDescription.setAttribute('content', post.summary);
+      }
+
+      // Open Graph
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute('content', post.title);
+      
+      const ogDescription = document.querySelector('meta[property="og:description"]');
+      if (ogDescription) ogDescription.setAttribute('content', post.summary);
+      
+      const ogImage = document.querySelector('meta[property="og:image"]');
+      if (ogImage && post.coverImageUrl) ogImage.setAttribute('content', post.coverImageUrl);
+
+      const ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl) ogUrl.setAttribute('content', `https://anime-trivia-a7bb7.web.app/blog/${post.slug}`);
+
+      // Twitter Card
+      const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+      if (twitterTitle) twitterTitle.setAttribute('content', post.title);
+      
+      const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+      if (twitterDescription) twitterDescription.setAttribute('content', post.summary);
+      
+      const twitterImage = document.querySelector('meta[name="twitter:image"]');
+      if (twitterImage && post.coverImageUrl) twitterImage.setAttribute('content', post.coverImageUrl);
+
+      // Keywords (si hay tags)
+      if (post.tags && post.tags.length > 0) {
+        let metaKeywords = document.querySelector('meta[name="keywords"]');
+        if (!metaKeywords) {
+          metaKeywords = document.createElement('meta');
+          metaKeywords.setAttribute('name', 'keywords');
+          document.head.appendChild(metaKeywords);
+        }
+        metaKeywords.setAttribute('content', `anime, ${post.tags.join(', ')}, noticias anime, manga, otaku`);
+      }
+
+      // Canonical URL
+      let linkCanonical = document.querySelector('link[rel="canonical"]');
+      if (!linkCanonical) {
+        linkCanonical = document.createElement('link');
+        linkCanonical.setAttribute('rel', 'canonical');
+        document.head.appendChild(linkCanonical);
+      }
+      linkCanonical.setAttribute('href', `https://anime-trivia-a7bb7.web.app/blog/${post.slug}`);
+
+      // JSON-LD Schema.org (Article)
+      const schemaScript = document.createElement('script');
+      schemaScript.type = 'application/ld+json';
+      schemaScript.id = 'article-schema';
+      schemaScript.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: post.title,
+        image: post.coverImageUrl || 'https://anime-trivia-a7bb7.web.app/logo512.png',
+        author: {
+          '@type': 'Organization',
+          name: 'LuffySunny'
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'LuffySunny',
+          logo: {
+            '@type': 'ImageObject',
+            url: 'https://anime-trivia-a7bb7.web.app/logo512.png'
+          }
+        },
+        datePublished: post.publishedAt,
+        dateModified: post.publishedAt,
+        description: post.summary,
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': `https://anime-trivia-a7bb7.web.app/blog/${post.slug}`
+        },
+        keywords: post.tags ? post.tags.join(', ') : 'anime, noticias',
+        articleSection: 'Anime y Manga',
+        inLanguage: 'es-ES'
+      });
+
+      // Remover schema anterior si existe
+      const oldSchema = document.getElementById('article-schema');
+      if (oldSchema) oldSchema.remove();
+      
+      document.head.appendChild(schemaScript);
+    }
+
+    // Cleanup al desmontar
+    return () => {
+      document.title = 'LuffySunny - La Mejor Trivia de Anime';
+      const oldSchema = document.getElementById('article-schema');
+      if (oldSchema) oldSchema.remove();
+    };
+  }, [post]);
+
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('es-ES', {
